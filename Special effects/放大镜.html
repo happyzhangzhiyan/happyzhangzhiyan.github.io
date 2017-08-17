@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0}
+#box1{width:240px; height:320px; position:relative; top:100px; left:100px; border:2px red solid}
+#box1 img{width:100%}
+#box1 span{ position:absolute; top:0; left:0; background:rgba(215,210,88,.3);width:100px; height:100px; cursor: move; display:none}
+#box2{width:250px; height:250px; overflow:hidden; position: absolute; top:100px; left:400px; }
+#box2 img{ position:absolute; top:0; left:0; display:none}
+</style>
+</head>
+
+<body>
+<div id="box1">
+	<img src="img/01.jpg">
+    <span id="zoom"></span>
+</div>
+<div id="box2">
+	<img src="img/01.jpg">
+</div>
+</body>
+</html>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+$('#box1').mousemove(function(ev){
+	var h=ev.pageY-$(this).offset().top-$('#zoom').height()/2;	
+	var w=ev.pageX-$(this).offset().left-$('#zoom').width()/2;
+	if(h<0){
+		h=0
+	};
+	if(w<0){
+		w=0
+	};
+	if(h>$(this).height()-$('#zoom').height()){
+		h=$(this).height()-$('#zoom').height();
+	};
+	if(w>$(this).width()-$('#zoom').width()){
+		w=$(this).width()-$('#zoom').width();
+	};
+	
+	
+	$('#zoom').show().css({"top":h,"left":w});
+	$('#box2 img').show().css({"top":-h*2.5,"left":-w*2.5});
+	
+	$('#box1').mouseout(function(){
+		$('#box2 img').hide();
+		$('#zoom').hide()
+	});
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+

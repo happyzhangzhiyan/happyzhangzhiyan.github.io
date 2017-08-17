@@ -1,0 +1,158 @@
+/* CSS Document */
+
+/*清除默认样式*/
+body,div,span,p,a,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,input,img{padding: 0;margin: 0;border: 0;list-style: none;outline: none;}
+body{color: #333;font-family: "microsoft yahei";font-size:12px;}
+a{text-decoration: none;color: #333;}
+a:hover{text-decoration:underlinr;color: #FF8B00;}
+
+/* 首页 */
+
+/* nav */
+#nav{height: 55px;background:url(navbg.jpg)/*tpa=http://948it.com/internet/zhuowang/images/navbg.jpg*/ repeat-x left top;}
+.nav_in{width: 913px;margin: 0 auto;height: 55px;line-height: 55px;}
+.nav_in h1{background: url(logo.png)/*tpa=http://948it.com/internet/zhuowang/images/logo.png*/ no-repeat;width: 155px;height: 55px;float: left;}
+.nav_in h1 a{width: 155px;height: 55px;display: block;}
+.nav_nav{float: left;width: 486px;}
+.nav_nav li{float: left;font-weight: bold;font-size: 16px;width: 95px;text-align: center;}
+.nav_nav li a{color: #fff;width: 81px;display: block;}
+.nav_nav li a:hover{color: #FF8B00;background:url(nav_bbg.png)/*tpa=http://948it.com/internet/zhuowang/images/nav_bbg.png*/ no-repeat center top;}
+.nav_in .search{width: 133px;height: 27px;float: left;margin-top:17px;background: url(searsh_box.png)/*tpa=http://948it.com/internet/zhuowang/images/searsh_box.png*/ no-repeat;color: #fff;text-indent:5px;font-size: 12px;font-weight: bold;}
+.nav_in .but{margin-top:17px;float: left;width: 34px;height: 27px;background:url(searsh.png)/*tpa=http://948it.com/internet/zhuowang/images/searsh.png*/;cursor: pointer;}
+.nav_in .language{float: right;color:#6F7777;}
+.nav_in .language a{color:#6F7777;}
+.nav_in .language a:hover{color:#FF8B00;text-decoration: underline;}
+.nav_in .language .current{color: #FF8B00;}
+
+/* banner */
+#banner{height: 407px;width: 100%;position: relative;}
+
+/* news */
+#news{height: 192px;}
+.news_up{height: 37px;background:url(newsup_bg.png)/*tpa=http://948it.com/internet/zhuowang/images/newsup_bg.png*/ repeat-x left top;line-height: 37px;}
+.up_in{width: 906px;margin: 0 auto;padding-left: 7px;}
+.upin_l{float: left;}
+.upin_r{float:right;height: 17px;margin-top: 8px;line-height: 17px;}
+.upin_r .follow{float: left;}
+.upin_r a{background: url(sprite.png)/*tpa=http://948it.com/internet/zhuowang/images/sprite.png*/ no-repeat;width: 17px;height: 17px;float: left;margin-left: 12px;}
+.upin_r .icon2{background-position: 0 -17px;}
+
+.news_down{width: 903px;margin: 0 auto;height: 128px;padding-top: 27px;padding-left: 10px;}
+.news_down dl{float: left;}
+.news_down dl dt{float: left;margin-right: 12px;}
+.news_down dl dd{float: left;}
+.news_down dd h3{line-height: 25px;font-size: 19px;font-weight: normal;display: block;height: 25px;margin-bottom:12px;}
+.news_down dd h3 a{color: #ff8b00;}
+.news_down dd h3 a:hover{color:#333333;}
+.news_down dd p{line-height: 18px;width: 286px;}
+.news_down dd p a{color: #333;}
+.news_down .down_right{float: right;}
+
+/* content */
+#content{height: 234px;background: url(content_bg.png)/*tpa=http://948it.com/internet/zhuowang/images/content_bg.png*/ repeat-x left top;}
+.con_in{width: 1000px;margin: 0 auto;height: 234px;padding-top: 43px;}
+.box1{margin-right:12px;float: left;}
+.box2{float: left;margin-right: 10px;width: 271px;height: 156px;background: url(bg.gif)/*tpa=http://948it.com/internet/zhuowang/images/bg.gif*/ no-repeat;padding-top: 26px;padding-left: 24px;}
+.box3{float: right;}
+.box1,.box3{margin-top: 57px;cursor: pointer;}
+.box2 dt{width: 109px;height: 104px;float: left;margin-right: 13px;}
+.box2 dd{float: left;width: 119px;}
+.box2 h4 a{color: #ff7575;font-size: 14px;line-height:15px;display: block;margin-bottom:10px;}
+.box2 p{font-size: 12px;}
+.box2 p a{color: #333;}
+.box2 h4 a.patio{color: #8F4586;}
+.box2 h4 a.book{color:#0066FE;}
+
+/* footer */
+#footer{width: 100%;height: 292px;background:url(footerBG.jpg.gif)/*tpa=http://948it.com/internet/zhuowang/images/footerBG.jpg*/;}
+.footer_top{width: 900px;margin: 0 auto;height: 209px;padding-top: 22px;overflow: hidden;}
+.footer_top dl{float: left;}
+.footer_top dt{height: 40px;font-weight: bold;font-size: 13px;color: #FF853A;}
+.footer_top dd{height: 25px;}
+.footer_top dd a{color: #fff;}
+.footer_top dd a:hover{color:#999999;}
+.footer_top .list01{width: 125px;}
+.footer_top .list02{width: 175px;}
+.footer_top .list03{width: 202px;}
+.footer_top .list04{width: 189px;}
+.footer_top .list05{width: 125px;}
+.footer_bot{width: 100%;border-top:2px solid #FC6B09;background:url(footerbot_bg.png)/*tpa=http://948it.com/internet/zhuowang/images/footerbot_bg.png*/ repeat-x left top;height: 41px;padding-top: 18px;}
+.footer_bot p{text-align: center;color: #B8B8B8;}
+.footer_bot p a{color: #B8B8B8;}
+.footer_bot p a:hover{color: #fff;}
+.footer_bot p.lastest{margin-top:5px;color: #666666;}
+
+
+
+/* 列表页 */
+
+.nav_nav .current a{color: #FF8100;}
+
+#list_banner{height: 207px;width: 100%;background:url(list_banner.jpg)/*tpa=http://948it.com/internet/zhuowang/images/list_banner.jpg*/ no-repeat center top;}
+
+#list_news{height: 36px;width: 100%;background:url(list_newsbg.png)/*tpa=http://948it.com/internet/zhuowang/images/list_newsbg.png*/ ;}
+.l_news_in{width: 920px;margin: 0 auto;height: 36px;}
+.intxt{float: right;height: 36px;line-height: 30px;}
+.intxt p{float: left;}
+.l_news_in a{width: 17px;height: 17px;background:url(sprite.png)/*tpa=http://948it.com/internet/zhuowang/images/sprite.png*/ no-repeat;float: left;margin-top: 7px;margin-left: 12px;}
+.l_news_in a.sina{background-position: 0 -17px;}
+
+.l_con_in{width: 920px;margin: 0 auto;padding-top:18px;}
+.list_na{height: 42px;background:url(listconbg.png)/*tpa=http://948it.com/internet/zhuowang/images/listconbg.png*/ repeat-x left top;border-bottom:1px solid #E3E3E3;}
+.list_na li{float: left;line-height: 42px;width: 131px;text-align: center;}
+.list_na li a{font-size: 16px;height: 42px;width: 132px;display: block;background: url(nav_bg02.png)/*tpa=http://948it.com/internet/zhuowang/images/nav_bg02.png*/ no-repeat right top;}
+.list_na li a:hover{background: url(nav_bg1.png)/*tpa=http://948it.com/internet/zhuowang/images/nav_bg1.png*/;}
+.list_na li a.current{background: url(nav_bg1.png)/*tpa=http://948it.com/internet/zhuowang/images/nav_bg1.png*/;}
+.list_buttom{background: url(tabBG.jpg)/*tpa=http://948it.com/internet/zhuowang/images/tabBG.jpg*/ no-repeat center top;width: 920px;}
+.list_buttom dl{height: 101px;border-bottom:1px solid #EAEAEA;padding-top:23px;padding-left: 35px;}
+.list_buttom dt{float: left;width: 82px;height: 82px;margin-right: 30px;}
+.list_buttom dd{float: left;width: 757px;}
+.list_buttom dd h4{height: 31px;display: block;line-height: 31px;margin-bottom:5px;}
+.list_buttom h4 a{font-size:20px;font-weight: normal;color: #FC6B39;}
+.list_buttom h4 a:hover{color: #777777;text-decoration: underline;}
+
+
+/* 详情页 */
+#detail{width: 920px;margin: 0 auto;padding-top: 21px;height: 1200px;}
+.detail_l{width: 680px;float: left;}
+.shang{background:url(shang.png)/*tpa=http://948it.com/internet/zhuowang/images/shang.png*/ no-repeat;display: block;height: 5px;}
+.txt1{width: 658px;height:238px;border-left:1px solid #EA851E;border-right:1px solid #EA851E;background: #fff;padding-left: 20px;padding-top: 10px;}
+.xia{background: url(xia.png)/*tpa=http://948it.com/internet/zhuowang/images/xia.png*/ no-repeat;display: block;height: 8px;}
+.txt1 .caption{font-size: 22px;color: #FC6B09;margin-bottom: 5px;}
+.txt1 .wenben{width: 640px;font-size: 16px;line-height: 24px;}
+.detailcen{padding-left: 20px;padding-top: 35px;}
+.detailcen p{font-size: 14px;font-weight: bold;}
+.detailcen img{margin-left: 70px;}
+.detailcen ul{margin-left: 70px;font-size: 13px;line-height: 20px;}
+.pro{height: 26px;border-bottom:2px dashed #EFEFEF;font-size: 16px;background: url(textbg.png)/*tpa=http://948it.com/internet/zhuowang/images/textbg.png*/ no-repeat left center;padding-left: 15px;color: #359EBD;margin-top: 35px;margin-left: 20px;margin-bottom: 25px;}
+.txt03{width: 620px;margin-left:50px;line-height: 20px;}
+.txt03 a{color: blue;}
+
+.detail_r{width:220px;float: right;background:url(rbg2.png)/*tpa=http://948it.com/internet/zhuowang/images/rbg2.png*/ no-repeat center bottom;}
+.morepro{height: 40px;background:url(detail_right.png)/*tpa=http://948it.com/internet/zhuowang/images/detail_right.png*/;line-height: 40px;display: block;font-size: 16px;color: #fff;padding-left: 15px;}
+.detail_r a.morepro:hover{color: #fff;}
+.detail_r dl{padding-left:40px;padding-top: 24px;}
+.detail_r dt{font-weight: bold;height: 32px;background:url(rbg.png)/*tpa=http://948it.com/internet/zhuowang/images/rbg.png*/ no-repeat left top;padding-left: 12px;font-size: 13px;}
+.detail_r dd li{padding-left: 12px;height: 22px;}
+.detail_r dd li a.current{color: #FC6B06;}
+.detail_r dt.teach{height: 50px;}
+
+
+
+/* ----------------------修改----------------------- */
+.banplay{width:300%;height: 407px;position: absolute;left: 0;top: 0;}
+.banplay li{float: left;background:url(banner1.jpg)/*tpa=http://948it.com/internet/zhuowang/images/banner1.jpg*/ no-repeat center top;width: 33.33333333%;height: 407px;}
+.banplay li a{width: 100%;height: 407px;display: block;}
+
+.box4{width:1000px;height:407px;position: absolute;left: 0;top: 0;right: 0;bottom: 0;margin: auto;}
+.box4 ol{width: 290px;height: 50px;margin:280px 0 0 50px;}
+.box4 ol li{float: left;margin-right: 10px;width: 85px;height: 49px;}
+.box4 ol .current{border: 1px solid #f60;margin-top: -1px;margin-left: -1px;}
+
+
+
+
+
+
+
+

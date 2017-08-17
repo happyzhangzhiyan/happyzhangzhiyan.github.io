@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3D相册-翻转</title>
+<style>
+	body{height: 3000px;}
+	.slide{position: absolute;left:0;right: 0;top: 0;bottom: 0;width: 980px;height: 500px;margin: auto;transform-style: preserve-3d;perspective: 3000px;}
+	.item{position: absolute;left: 0;top: 0;width: 100%;height: 100%;transition: all 1s}
+	
+</style>		
+	</head>
+	<body>
+<div class="slide"></div>		
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>
+	<script>
+	for(var i=0;i<4;i++){
+		$("<div class='item'></div>").css({
+			"background-image":"url(img/"+i+".jpg)",
+			"transform":"rotateX("+(i*90)+"deg) translateZ(250px)"
+		}).appendTo(".slide")
+		
+	}
+	var num=0
+	$("body").click(function(){
+		num++;
+		$(".item").each(function(index){
+			var deg=index*90-num *90;
+			$(this).css({
+				"transform":"rotateX("+deg+"deg) translateZ(250px)"
+			})
+		})
+		
+	})
+	
+	</script>
+	</body>
+</html>

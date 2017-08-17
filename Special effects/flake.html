@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>雪花</title>
+		<style type="text/css">
+			body{background: #101010;overflow: hidden;}
+		</style>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>
+	<script type="text/javascript">
+		var time=200;
+		var colorColor="#fff"
+		var minSize=20;
+		var maxSize=50;
+		
+		var flake=$("<div class='flake'></div>").css({"position":"absolute","top":"-50px"}).html("❉");
+		var document_height=$(document).height();
+		var document_width=$(document).width();
+		setInterval (function(){
+			var startPositionLeft=Math.random()*document_width;
+			var startOpacity=0.7+Math.random()*0.3;
+			var endTop=document_height-(minSize+maxSize)
+			var endPositionLeft=Math.random()*document_width-(minSize+maxSize);
+			var durationFall=2000+Math.random()*3000;
+			var sizeFlake=minSize+Math.random()*maxSize;
+			flake.clone().appendTo("body").css({
+				"left":startPositionLeft,
+				"opacity":startOpacity,
+				"font-size":sizeFlake,
+				"color":colorColor
+			}).animate({
+				"top":endTop,
+				"left":endPositionLeft,
+				"opacity":0.3
+			},durationFall)
+			
+			
+			$(".flake").each(function(i){
+				var _this=$(this)
+				if(_this.offset().top==endTop){
+					_this.remove()
+				}
+			})
+			
+	
+		},time)
+			
+			
+		
+	</script>
+</html>

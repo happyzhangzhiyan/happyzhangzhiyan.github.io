@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>立体相册</title>
+<style>
+body{background: #000;height:3000px}
+.box{width: 800px;height:500px; position:absolute; left:0; top:0; right:0; bottom:0; margin:auto;transform-style: preserve-3d;perspective:1000px;transform: rotateX(-35deg);}
+.item{position: absolute;left: 0;top: 0;border-radius: 8px;transform-origin:bottom;transition: all 1s;}
+.prev{position: absolute;left: 0px;bottom: -30px;}
+.next{position: absolute;left: 50px;bottom: -30px;}
+</style>		
+	</head>
+	<body>
+<div class="warp">
+	<div class="box">
+		<button type="button" class="prev">prev</button>
+		<button type="button" class="next">next</button>
+	</div>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>
+<script>
+	var w=$(".box").width();
+	var h=$(".box").height();
+	var num=6;
+	var bol=true;
+	var timer;
+	var n;
+
+	for(var i=0;i<num;i++){
+	
+		$("<div class='item'></div>").width(w).height(h).css({
+			"background-image":"url(img/"+i+".jpg)",
+			"transform":"translateZ("+i*(-50)+"px)"
+		}).appendTo($(".box"))
+		
+	}
+	function next(){
+		var first=$(".item").first()
+		first.css({
+			"transform":"rotateX(180deg)",
+			"opacity":0.1
+		})
+		
+		setTimeout(function(){
+			first.css({
+			"transform":"rotateX(0deg) translateZ("+num*(-50)+"px)",
+			"opacity":1
+			}).appendTo($(".box"))
+			setTimeout(set(),500)
+		},1000)
+			
+	}
+	function auto_change(){
+		n=0;
+		timer=setInterval(function(){	
+			if(n==num){n=0}
+			n++;
+			next()
+		
+		},2000)
+	}
+	auto_change()
+	
+	function set(){
+			$(".item").each(function(i){
+			$(".item").eq(i).css({
+			"transform":"translateZ("+i*(-50)+"px)"
+				})
+			})
+			bol=true
+		}
+	
+	$(".next").click(function(){
+		if(!bol){
+			return false;
+		}
+		bol=false;
+		
+		next()
+		
+	})
+	$(".prev").click(function(){
+		
+		if(!bol){
+			return false;
+		}
+		bol=false;
+		var last=$(".item").last()
+		last.css({
+			"transform":"rotateX(-180deg)",
+			"opacity":0.1
+		})
+		setTimeout(function(){
+			last.css({
+			"transform":"rotateX(180deg) translateZ(0px)",
+			"opacity":1
+			}).prependTo($(".box"))
+			setTimeout(set(),500)
+		},1000)
+	})
+	$("button,.item").mouseenter(function(){
+		clearInterval(timer)
+	})
+	$("button,.item").mouseleave(function(){
+		auto_change()
+	})
+</script>
+	</body>
+</html>

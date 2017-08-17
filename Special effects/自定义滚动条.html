@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>滚动条</title>
+<style>
+*{ margin:0; padding:0}
+#box{ width:300px; height:500px; border:1px solid #ccc; overflow:hidden; position:relative; top:100px; left:200px}
+.cont{ position:absolute; margin-right:30px}
+.scroll{ width:20px; height:50px; position:absolute; top:0; right:0; background:#ccc;}
+</style>
+</head>
+
+<body>
+<div id="box">
+   	<p>言。 ECMAScript是一种由Ecma国际（前身是European Compu言。 ECMAScript是一种由Ecma国际（前身为欧洲计算机制造商协会,英文名称是European Computer Manufacturers Association）通过言。 ECMAScript是一种由Ecma国际（前身是European Compu言。 ECMAScript是一种由Ecma国际（前身为欧洲计算机制造商协会,英文名称是European Computer Manufacturers Association）通过ECMA-262标准化的脚本程序设计语言言。 本程序设计语言言。 ECMAScript是一种由Ecma国际（前身是European Compu言。 ECMAScript是一种由Ecma国际（前身为欧洲计算机制造商协会,英文名n Computer Manufacturers Association）通过言。 ECMAScript是一种由Ecma国际（前身是European Compu言。 ECMAScript是一种由Ecma国际（前身为欧洲计算机制造商协会,英文名称是European Computer Manufacturers Association）通过ECMA-262标准化的脚本程序设计语言言。 本程序设计语言言。 ECMAScript是一种由Ecma国际（前身是European Compu言。 ECMAScript是一种由Ecma国际（前身为欧洲计算机制造商协会,英文n Computer Manufacturers Association）通过言。 ECMAScript是一种由Ecma国际（前身是European Compu言。 ECMAScript是一种由Ecma国际（前身为欧洲计算机制造商协会,英文名称是European Computer Manufacturers Association）通过ECMA-262标准化的脚本程序设计语言言。 本程序设计语言言。 ECMAScript是一种由Ecma国际（前身是European Compu言。 ECMAScript是一种由Ecma国际（前身为欧洲计算机制造商协会,英文称是European Computer Manufacturers Association）通过ECMA-262标准化的脚本程序设计语言ECMA-262标准化的脚本程序设计语言。 言。 </p>
+</div>
+</body>
+</html>
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/tools.js"></script>
+<script src="js/widget.js"></script>
+<script>
+	
+
+
+	//判断内容是否超出
+	var oBox=$('#box');
+	var oBox_h=oBox.height();//盒子高度
+	
+	var oBox_cont_h=oBox.prop("scrollHeight");//内容高度
+	console.log(oBox_h,oBox_cont_h);
+	
+	if(oBox_cont_h>oBox_h){
+		oBox.children().wrap('<div class="cont"></div>');
+		var scrollBox=$('<div class="scroll"></div>');
+		oBox.append(scrollBox);
+		
+		var n_oBox_cont_h=oBox.prop("scrollHeight"); //重新计算盒子内容高度
+		//console.log(oBox_h,n_oBox_cont_h);
+		
+		//计算比例
+		var h_rate=oBox_h/n_oBox_cont_h;
+		
+		var scrollBox_h=oBox_h*h_rate;//手柄高度
+		
+		if(scrollBox_h<50){//限制手柄的最小高度
+			scrollBox_h=50;
+		};
+		//设定手柄的高度
+		scrollBox.height(scrollBox_h);
+			
+		//拖拽------------------------------------------------
+		scrollBox.mousedown(function(ev){
+			//var disY=ev.pageY-scrollBox.offset().top;	//鼠标相对手柄偏移
+			var disY=ev.pageY-scrollBox.position().
+			$(document).mousemove(function(ev){
+				//var t=ev.pageY-oBox.offset().top-disY; //盒子偏移  -鼠标相对手柄偏移
+				var t=ev.pageY-disY;
+				move(t);
+			});
+			$(document).mouseup(function(){
+				$(document).unbind('mousemove');
+			});
+			
+			return false;//阻止默认事件  
+		});
+		
+		
+		
+		function move(t){
+			if(t<0){
+				t=0;
+			};
+			
+			if(t>oBox_h-scrollBox_h){
+				t=oBox_h-scrollBox_h
+			};
+			
+			//计算移动比率
+			var move_rate=t/(oBox_h-scrollBox_h);
+			console.log(move_rate)
+			
+			var tt=(n_oBox_cont_h-oBox_h)*move_rate;//内容要移动的距离
+			
+			
+			oBox.children('.cont').css('top',-tt);
+			scrollBox.css('top',t);
+		};
+		
+		
+		//滚轮-----------------------------------------
+		oBox.mouseWheel(function(drt){
+			console.log(drt)
+			var t=0;
+			// ↓ true   ↑ false
+			
+			if(drt){
+				t=scrollBox.position().top+10;
+				move(t)				
+			}else{
+				t=scrollBox.position().top-10;
+				move(t)	
+			}
+		});
+		
+		
+		
+		
+		
+	};
+	
+	
+
+
+
+
+</script>
+

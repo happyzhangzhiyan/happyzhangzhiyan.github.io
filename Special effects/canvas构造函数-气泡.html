@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas气泡</title>
+		<style type="text/css">
+			.warp{width: 1000px;margin: 0 auto;}
+		</style>
+	</head>
+	<body>
+<div class="warp">		
+<canvas id="mycanvas" width="1000px" height="700px"></canvas>
+</div>	
+	</body>
+<script>
+var can=document.getElementById("mycanvas")
+var ctx=can.getContext("2d")
+
+function Dot(x,y,c,r,n,s){
+	this.x=x;
+	this.y=y;
+	this.color=c;
+	this.radius=r;
+	this.n=n;
+	this.max=s;
+	this.bol=true;
+	this.draw=function(){
+		ctx.beginPath()
+		ctx.fillStyle=this.color
+		ctx.arc(this.x,this.y,this.radius,0,Math.PI*2)
+		ctx.fill()
+		ctx.closePath()
+	
+		if (this.bol==true) {
+			this.radius+=this.n
+			if(this.radius>=this.max){
+				this.bol=false
+			}
+			
+		} else{
+			this.radius-=this.n
+			if(this.radius<0){
+				this.radius=0
+				this.bol=true
+			}
+		}
+		console.log(this.radius)
+	}
+}
+var arr=[]
+function draw_arr(){
+	for (var i=0;i<100;i++) {
+		var x=Math.random()*can.width
+		var y=Math.random()*can.height
+		var r=Math.random()*10+30;
+		var n=Math.random()*1;
+		var c=random_color();
+		var s=Math.random()*40+60
+		var ss=new Dot(x,y,c,r,n,s)
+		
+		arr.push(ss)
+	}
+	
+}
+ draw_arr()
+function random_color(){
+	r=Math.floor(Math.random()*255);
+	g=Math.floor(Math.random()*255);
+	b=Math.floor(Math.random()*255);
+	a=0.1
+	return "rgba("+r+","+g+","+b+","+a+")"
+}
+
+
+
+	setInterval(function(){
+	
+	ctx.clearRect(0,0,can.width,can.height)
+	for (var i=0;i<100;i++) {
+		
+		arr[i].draw()
+		
+	}
+	
+	
+},30)
+	
+
+
+
+
+</script>	
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+	text{font-size: 30px;text-anchor: middle;fill: red;dominant-baseline: middle;}
+	.warp{width: 500px;margin: 0 auto;}
+	</style>
+	<body>
+		<div class="warp">
+			<svg height="500" width="500"></svg>
+			
+		</div>
+		
+		
+	</body>
+	
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>
+		<script>
+			var ns="http://www.w3.org/2000/svg"
+			var dom=document.createElementNS(ns,"circle");
+			var dom_o=document.createElementNS(ns,"circle");		
+			var svg=$("svg");
+			$(dom_o).attr({
+				cx:250,
+				cy:250,
+				r:7,
+				fill:"black"
+			}).appendTo(svg)
+			$(dom).attr({
+				cx:250,
+				cy:250,
+				r:200,
+				stroke:"black",
+				"stroke-width":10,
+				fill:"none"
+			}).appendTo(svg)
+			for(var i=0; i<60;i++){
+				var tet=document.createElementNS(ns,"text");
+				dom=document.createElementNS(ns,"circle")
+				var deg=Math.PI/30*i-(Math.PI/2)
+					$(dom).attr({
+					cx:250+Math.cos(deg)*240,
+					cy:250+Math.sin(deg)*240,
+					r:i%5?4:7,
+					fill:"black"
+					}).appendTo(svg)
+					
+					if(i%5==0){
+						
+						$(dom).attr("fill","red").appendTo(svg)
+						$(tet).html(i/5);
+						if($(tet).html==0){
+							$(tet).html=12
+						}
+						$(tet).attr({
+							x:250+Math.cos(deg)*220,
+							y:250+Math.sin(deg)*220,
+						}).appendTo(svg)
+					}
+					
+			}
+				var s_dom=document.createElementNS(ns,"line");
+				var ss_dom=document.createElementNS(ns,"line");
+				var m_dom=document.createElementNS(ns,"line");
+				var h_dom=document.createElementNS(ns,"line");
+			function run(){
+				var data=new Date()
+				var s=data.getSeconds();
+				var m=data.getMinutes();
+				var h=data.getHours();
+				var s_deg=Math.PI/30*s-(Math.PI/2);
+				var ss_deg=Math.PI/30*s-(Math.PI/2-Math.PI);
+				var m_deg=Math.PI/30*(m+s/60)-(Math.PI/2);
+				var h_deg=Math.PI*2/12*(h+s/3600+m/60)-(Math.PI/2);
+				
+				
+				function paint(deg,dom,r,color,w){
+					$(dom).attr({
+					x1:250,
+					y1:250,
+					x2:250+Math.cos(deg)*r,
+					y2:250+Math.sin(deg)*r,
+					stroke:color,
+					"stroke-width":w,
+					
+				}).appendTo(svg)
+					
+				}
+				paint(ss_deg,ss_dom,25,"red",2);
+				paint(s_deg,s_dom,190,"red",2);
+				paint(m_deg,m_dom,160,"black",3);
+				paint(h_deg,h_dom,100,"black",5);
+			}
+			run()
+			setInterval(run,1000)
+			
+		
+		</script>
+	
+</html>

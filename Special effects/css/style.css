@@ -1,0 +1,12 @@
+*{margin:0; padding:0;}
+body{background-color:#000; overflow:hidden;}
+img{width:100%; height:100%; display:block;}
+.wrap{position:absolute; left:0; right:0; top:0; bottom:0; margin:auto; width:900px; height:900px; border-radius:50%; transform-style:preserve-3d; perspective:400px; transform:rotateX(45deg);}
+.sun{position:absolute; left:0; right:0; top:0; bottom:0; margin:auto; width:100px; height:100px; border-radius:50%; overflow:hidden; box-shadow:0 0 30px yellow;}
+.star_wrap{position:absolute; left:0; right:0; top:0; bottom:0; margin:auto; width:200px; height:200px; border-radius:50%; border:1px dashed #fff;}
+.star_box{position:absolute; left:0; right:0; top:0; bottom:0; margin:auto; width:200px; height:200px; animation: run 4s linear infinite;}
+.star{position:absolute; left:-20px; top:calc(50% - 20px); width:40px; height:40px; border-radius:50%; overflow:hidden;}
+@keyframes run {
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}

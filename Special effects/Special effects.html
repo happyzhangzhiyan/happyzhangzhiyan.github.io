@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>常见网页特效</title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			body{background-image:url(img/16pic_470029_b.jpg); background-size:cover}
+			a{text-decoration: none;}
+			.warp{display: flex;justify-content: center; margin-top:-66px}
+			a{;color:black;}
+			a:hover{color: #31708F;}
+			.btn{width: 80px;height: 30px; position:fixed; bottom:0; left:0}
+		</style>
+    <style>
+        .box{width: 650px;margin: 0 auto;}
+        div{transform-style: preserve-3d;perspective: 800px;}
+        .box-3d{position: absolute;  top:66px;height: 66px;width: 100%;transform: rotateX(-90deg);transform-origin: top;background: url("img/16pic_470029_b.jpg");}
+        .box .box-warp{transform: rotateX(0deg);transform-origin: bottom; text-align:center; line-height:66px; cursor:pointer}
+        .box-1{background: url("img/16pic_470029_b.jpg") left 396px;}
+        .box-2{background: url("img/16pic_470029_b.jpg") left 330px;}
+        .box-3{background: url("img/16pic_470029_b.jpg") left 264px;}
+        .box-4{background: url("img/16pic_470029_b.jpg") left 198px;}
+        .box-5{background: url("img/16pic_470029_b.jpg") left 132px;}
+        .box-6{background: url("img/16pic_470029_b.jpg") left 66px;}
+        @keyframes show {
+            0%{transform: rotateX(-80deg);}
+            25%{transform: rotateX(7deg);}
+            50%{transform: rotateX(-7deg);}
+            75%{transform: rotateX(7deg);}
+            100%{transform: rotateX(0deg);}
+        }
+        .show{animation:show 1.5s;animation-fill-mode:forwards;}
+    </style>
+    <script>
+        window.onload=function(){
+            var box_1=document.getElementsByClassName('box-warp')[0];
+            var box_2=document.getElementsByClassName('box-warp')[1];
+            var box_3=document.getElementsByClassName('box-warp')[2];
+            var boxWarp=document.getElementsByClassName('box-warp')[0].getElementsByTagName('div');
+            var boxWarp1=document.getElementsByClassName('box-warp')[1].getElementsByTagName('div');
+            var boxWarp2=document.getElementsByClassName('box-warp')[2].getElementsByTagName('div');
+            var i=0;
+            var n=1;
+            var i1=0;
+            var n1=1;
+            var i2=0;
+            var n2=1;
+            var timer;
+			var timer1;
+			var timer2;
+
+            box_1.onclick=function(){
+				if(i<5){
+					timer=setInterval(function(){
+						boxWarp[i].className='box-3d box-'+n+' show';
+						i++;
+						n++;
+						console.log(i);
+						if(i>5){
+							clearInterval(timer);
+						};
+					},300);
+				}
+            };
+            box_2.onclick=function(){
+				if(i1<5){
+					timer1=setInterval(function(){
+	
+						boxWarp1[i1].className='box-3d box-'+n1+' show';
+						i1++;
+						n1++;
+						console.log(i1);
+						if(i1>5){
+							clearInterval(timer1);
+						};
+					},300);
+				}
+            };
+            box_3.onclick=function(){
+				if(i2<5){
+					timer2=setInterval(function(){
+						boxWarp2[i2].className='box-3d box-'+n2+' show';
+						i2++;
+						n2++;
+						console.log(i2);
+						if(i2>5){
+							clearInterval(timer2);
+						};
+					},300);
+				}
+            };
+        };
+    </script>
+	</head>
+	<body>
+		<button type="button" class="btn btn-danger"><a href="../index.html">返回首页</a></button>
+		<div class="warp">	
+        <div class="box">
+            <div class="box-warp box-3d">点击展开
+                <div class="box-3d box-1"><a href="3d相册-分割.html" target="_blank">3D相册-分割</a>
+                    <div class="box-3d box-2"><a href="3d相册-翻转.html" target="_blank">3d相册-翻转</a>
+                        <div class="box-3d box-3"><a href="照片墙（收缩 聚拢）完整.html" target="_blank">照片墙（收缩 聚拢）</a>
+                            <div class="box-3d box-4"><a href="仿真.html" target="_blank">仿真钟表</a>
+                                <div class="box-3d box-5"><a href="立方体.html" target="_blank">立方体旋转</a>
+                                    <div class="box-3d box-6"><a href="立体相册.html" target="_blank">立体相册</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-warp box-3d">点击展开
+                <div class="box-3d box-1"><a href="手风琴.html" target="_blank">手风琴</a>
+                    <div class="box-3d box-2"><a href="旋转轮播图.html" target="_blank">旋转轮播图</a>
+                        <div class="box-3d box-3"><a href="flake.html" target="_blank">雪花</a>
+                            <div class="box-3d box-4"><a href="canvas构造函数-气泡.html" target="_blank">canvas-气泡</a>
+                                <div class="box-3d box-5"><a href="canvas画圆.html" target="_blank">canvas画圆</a>
+                                    <div class="box-3d box-6"><a href="canvas黑板.html" target="_blank">canvas黑板</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-warp box-3d">点击展开
+                <div class="box-3d box-1"><a href="贪吃蛇.html" target="_blank">canvas贪吃蛇</a>
+                    <div class="box-3d box-2"><a href="放大镜.html" target="_blank">放大镜</a>
+                        <div class="box-3d box-3"><a href="自定义滚动条.html" target="_blank">自定义滚动条</a>
+                            <div class="box-3d box-4"><a href="碰撞_购物车.html" target="_blank">碰撞_购物车</a>
+                                <div class="box-3d box-5"><a href="select日历.html" target="_blank">日历</a>
+                                    <div class="box-3d box-6"><a href="太阳系.html" target="_blank">太阳系</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		</div>
+	</body>
+</html>

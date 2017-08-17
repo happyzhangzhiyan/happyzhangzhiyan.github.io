@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>留言</title>
+	</head>
+	<link rel="stylesheet" href="css/bootstrap.css" />
+	<link rel="stylesheet" href="css/index.css" />
+	<style type="text/css">
+		body{background-image: url(../img/page3_bg.png);background-repeat: repeat;position: relative;}
+		
+		.journal{background-color: #138be5;box-shadow: 0 0 20px #138be5;}
+		.line3px{height: 3px;background-color: #FFFFFF;border-radius: 50%;}
+		.line2px{height: 2px;background-color: #FFFFFF;border-radius: 50%;}
+		.Message p{margin: 0;}
+		.Message{width: 80%;background: #fff;border-radius:10px ;padding: 10px;}
+		form{text-align: right;width:80%;margin: 20px auto;padding-bottom: 15px;position: relative;display: none;}
+		.insert{width: 80%;padding: 0;margin-bottom: 20px;}
+		.insert li{width: 100%; padding:15px;border-radius: 8px;;margin-top:15px;position: relative;}
+		.insert li p{word-break: break-word;margin: 0;font-size: 18px;text-indent: 2em;padding: 5px;}
+		.insert li .zan,.insert li .cai{display: block;width: 20px;height: 20px;background-size: cover;color:#000000;position: absolute;font-size: 18px;cursor: pointer;bottom:6%}
+		.insert li .zan1{background-image: url(img/zan1.png);}
+		.insert li .zan2{background-image: url(img/zan2.png);}
+		.insert li .cai1{background-image:url(img/cai1.png)}
+		.insert li .cai2{background-image:url(img/cai2.png);}
+		.insert .name{color: white;font-size:22px;}
+		form textarea{height: 200px;width: 500px;resize: none;padding:30px;border-radius: 10px;background:papayawhip;outline: none;text-indent: 30px;border: none;}
+		.cancel,.release{height: 40px;width: 80px;margin-top: 15px;margin-left: 50px;border-radius: 5px;border: none;}		
+		.insert .time{font-size: 16px;color: #333333;position: relative;bottom:0;left:1%;}
+		.zan{right: 2%;}
+		.cai{right: 8%;}
+		.zanNum,.caiNum{position:absolute;top: -20px;}
+		.journal h3,.journal h4{color: #fff;margin: 15px;}
+		#alert{position: fixed;width: 260px;z-index: 200;box-shadow: 0 0 17px 2px #ccc;margin: 0;height: 170px;margin-bottom: 0;}
+		#alert .close{position: absolute;right:2%;top:2%;}
+		#alert input{margin-bottom: 15px;padding: 5px 15px;width: 100%;border:none}
+		#alert h3{margin:0 0 10px 0;}
+		#alert #sub{margin: 0;width: 30%;}
+		@media screen and (max-width: 480px) {
+			.insert li{
+				padding: 5px;
+			}
+			.time{
+				bottom: -8px;
+				font-size: xx-small;
+			}
+			.cai,.zan{
+				font-size: 12px;
+			}
+			.insert li p{text-indent: 2em;}
+			.insert .name{font-size: 16px;}
+			.insert li .zan,.insert li .cai{display: block; width: 15px;height: 15px;}
+		}
+	</style>
+	
+<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js" ></script>
+<script type="text/javascript" src="js/message.js"></script>
+<script type="text/javascript" src="ueditor1_4_3_2-src/ueditor.config.js"></script>
+<script type="text/javascript" src="ueditor1_4_3_2-src/_examples/editor_api.js"></script>
+<body>
+	<div class="alert hide alert-warning text-center" id="alert">
+		<h3>欢迎访问</h3>
+	  	<button type="button" class="close">&times;</button>
+	  	<input type="text" name="" id="user" value="" placeholder="请输入昵称" />
+	  	<input type="button" name="" id="sub" value="提交" class="btn btn-danger" />
+	</div>		
+<div id="wrap" class="clearfix"></div>	
+
+<div class="journal container">
+	<h3>留言板</h3>
+	<hr class="line3px" />
+	<h4>寄语</h4>
+	<div class="Message container">
+		<p>hello</p>
+	</div>
+	<h4 class="ishide">当前留言</h4>
+	<hr class="line2px" />
+	<ul class="insert container">
+	</ul>
+
+	<button type="button" class="insert-btn btn btn-info" style="width:80px; height:30px; ">我要留言</button>
+	<form>
+		<textarea id="Mytext" placeholder="说点儿什么吧..."></textarea><br>
+		<button class="cancel btn btn-danger" type="button">取 消</button>
+		<button class="release btn btn-info" type="button">发 布</button>
+
+	</form>	
+<hr/>
+</div>	
+
+</body>
+</html>

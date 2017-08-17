@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+<style>
+	canvas{position: absolute;left:40%;background: }
+	
+</style>	
+	
+	<body>
+<canvas id="mycanvas" height="400" width="400"></canvas>
+
+		
+	</body>
+<script> 
+var can=document.getElementById("mycanvas")
+var ctx=can.getContext("2d")
+var w=can.width
+var h=can.height
+var x=w/2;
+var y=h/2;
+
+ctx.lineWidth=26
+var r=Math.min(w,h)/2-13;
+var total=10;
+var progress=0;
+var taget=0.4	
+function dran(){
+	
+	if (progress>total) {
+		return false;
+			} 
+		ctx.beginPath()
+		ctx.strokeStyle='red';
+		ctx.arc(x,y,r,0,Math.PI*2)
+		ctx.stroke()
+		
+		var start=Math.PI*3/2*progress/total;
+		
+		var end=Math.PI*2*taget*progress/total;
+		
+		ctx.beginPath()
+		ctx.strokeStyle='royalblue';
+		ctx.lineCap="round"
+		ctx.arc(x,y,r,start,end,true)
+		ctx.stroke()
+	//	ctx.strokeText(45645)
+		
+		progress++
+
+		
+	
+
+	
+	
+}
+
+
+setInterval(function(){
+	
+	dran()
+},500)
+console.log(x)
+</script>	
+	
+</html>

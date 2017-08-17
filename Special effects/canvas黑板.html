@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+		.color{position:fixed; top: 50px;left:100px;}
+	</style>
+	</head>
+	<body>
+	<div class="color">
+		颜色:<input type="color"/>
+		
+		大小:<select class="size">
+			<option value="1">1px</option>
+			<option value="2">2px</option>
+			<option value="3">3px</option>
+			<option value="4">4px</option>
+			<option value="5">5px</option>
+			<option value="6">6px</option>
+			<option value="7">7px</option>
+			<option value="8">8px</option>
+			<option value="9">9px</option>
+			<option value="10">10px</option>
+		</select>
+	</div>
+	
+
+<canvas id="mycanvas"></canvas>		
+	</body>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>	
+<script>
+	var color;
+	var size;
+	var path="";
+	var length=0;
+	
+	
+	
+	
+	$(".size,input").change(function(){
+		size=$(this).val()	
+		color=$(this).val()
+	})
+
+	
+	var can=document.getElementById("mycanvas")
+	ctx=can.getContext("2d")
+	can.width=window.innerWidth
+	can.height=window.innerHeight
+	ctx.beginPath()
+
+	var lastX;
+	var lastY
+	var swich=0
+	can.onmousedown=function(ev){
+    		
+    	if(ev.button==0){
+			swich=1
+		}else if (ev.button==2) {
+      		swich=2
+        }
+    }
+		
+	can.oncontextmenu=function(){
+		return false;
+	}
+
+	
+	can.onmousemove=function(ev){
+		
+    
+		if(swich==1){
+			paint(ev)
+		}else if (swich==2) {
+      		clear(ev)
+        }
+		
+	}
+	can.onmouseup=function(ev){
+		swich=0
+		lastX=lastY=undefined
+		console.log(path)
+		console.log(length)
+	}
+	function paint(ev){
+		if(lastX==undefined){
+			lastX=ev.offsetX;
+			lastY=ev.offsetY;
+			path="M"+lastX+","+lastY
+			return
+		}
+		ctx.beginPath()
+		ctx.moveTo(lastX,lastY)
+		ctx.lineTo(ev.offsetX,ev.offsetY)
+		ctx.strokeStyle=color
+		ctx.lineWidth=size;
+		ctx.lineJoin="round"
+		ctx.closePath()
+		ctx.stroke();
+		path+="L"+ev.offsetX+","+ev.offsetY;
+		length+=Math.sqrt(Math.pow(lastX-ev.offsetX,2)+Math.pow(lastY-ev.offsetY,2))
+		lastX=ev.offsetX;
+		lastY=ev.offsetY;
+	
+		
+	}                                          
+	function clear(ev){
+		var	x=ev.offsetX-25
+		var	y=ev.offsetY-25
+		ctx.clearRect(x,y,50,50)
+	}
+</script>			
+		
+	</body>
+</html>

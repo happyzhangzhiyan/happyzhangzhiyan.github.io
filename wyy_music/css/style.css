@@ -1,0 +1,11 @@
+html{font-size:100px;}
+body{padding:0;margin:0;font-size:14px;}
+*{margin:0;padding:0;}
+.auto{width:100%;}
+.tarbar{position:fixed;width:100%;z-index:10;top:0;left:0;}
+.tarbar h2{line-height:0.56rem;padding:0 0.2rem;background:#ce3d3e;margin:0;color:#fff;font-family:"微软雅黑";}
+.tarbar h2 span{float:right;}
+.tarbar ul{display:flex;width:100%;line-height:0.16rem;background:#fff;position:relative;}
+.tarbar ul li{list-style:none;width:25%;text-align:center;height:0.48rem;line-height:0.48rem;}
+.tarbar ul span{position:absolute;left:0;bottom:0;height:2px;background:#ce3d3e;width:25%;}
+.tabcontaner{padding-top:1.02rem;}

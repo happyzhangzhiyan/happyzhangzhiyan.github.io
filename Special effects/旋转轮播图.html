@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>旋转轮播图</title>
+    <link rel="stylesheet" href="css/xuanzhuanlunbo.css"/>
+</head>
+<body>
+<div class="wrap" id="wrap">
+   <div class="slide" id="slide">
+       <ul>
+           <li><a href="#"><img src="img/1.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="img/2.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="img/3.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="img/4.jpg" alt=""/></a></li>
+           <li><a href="#"><img src="img/5.jpg" alt=""/></a></li>
+       </ul>
+       <div class="arrow" id="arrow">
+           <a href="javascript:;" class="prev"></a>
+           <a href="javascript:;" class="next"></a>
+       </div>
+   </div>
+</div>
+</body>
+</html>
+<script src="js/my.js"></script>
+<script>
+    var wrap = document.getElementById("wrap");  // 大盒子
+    var arrow = document.getElementById("arrow");  // 三角
+    var slider = document.getElementById("slide");
+    var lis = slider.getElementsByTagName("li");  // 所有要操作的盒子
+    wrap.onmouseover = function() {  // 鼠标经过显示和隐藏 左右两个箭头
+         animate(arrow,{ 'opacity':1 });
+    }
+    wrap.onmouseout = function() {
+        animate(arrow,{ 'opacity':0 });
+    }
+    //  存储了每个图片的信息
+    var json_arr = [
+        {   //  1
+            width:400,
+            top:20,
+            left:50,
+            opacity:0.2,
+            z:2
+        },
+        {  // 2
+            width:600,
+            top:70,
+            left:0,
+            opacity:0.8,
+            z:3
+        },
+        {   // 3
+            width:800,
+            top:100,
+            left:200,
+            opacity:1,
+            z:4
+        },
+        {  // 4
+            width:600,
+            top:70,
+            left:600,
+            opacity:0.8,
+            z:3
+        },
+        {   //5
+            width:400,
+            top:20,
+            left:750,
+            opacity:0.2,
+            z:2
+        }
+    ];
+    var as = arrow.children;
+    //给li元素添加JSON中的属性(同时遍历JSON与li);
+        for(var i=0;i<lis.length;i++){
+                  animate(lis[i],{
+                    width:json_arr[i].width,
+                    top:json_arr[i].top,
+                    left:json_arr[i].left,
+                    opacity:json_arr[i].opacity,
+                })
+                    lis[i].style.zIndex = json_arr[i].z;
+            }
+    
+    as[0].onclick = function(){
+            changeJson(false);
+    }
+
+    as[1].onclick = function(){
+            changeJson(true);
+    }
+   function changeJson(flag){
+            //交换JSON;
+            if (flag) {
+            //true时为右侧按钮;
+                json_arr.unshift(json_arr.pop());
+                for(var i=0;i<lis.length;i++){
+                animate(lis[i],{
+                    width:json_arr[i].width,
+                    top:json_arr[i].top,
+                    left:json_arr[i].left,
+                    opacity:json_arr[i].opacity,
+                },function(){ jieliu = true; })
+                    lis[i].style.zIndex = json_arr[i].z;
+                }
+            }else{
+                json_arr.push(json_arr.shift());
+                for(var i=0;i<lis.length;i++){
+                  animate(lis[i],{
+                    width:json_arr[i].width,
+                    top:json_arr[i].top,
+                    left:json_arr[i].left,
+                    opacity:json_arr[i].opacity,
+                })
+                    lis[i].style.zIndex = json_arr[i].z;
+            }
+        }
+
+    }
+   
+</script>

@@ -1,0 +1,154 @@
+/* CSS Document */
+
+/*清除默认样式*/
+body,div,span,p,a,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,input,img{padding: 0;margin: 0;border: 0;list-style: none;outline:none;}
+body{color: #888888;font-family: "微软雅黑";font-size:13px;}
+a{text-decoration: none;color:#888888;}
+a:hover{text-decoration: none;color:#fff;}
+
+/* 首页 */
+
+/* nav */
+#nav{width: 1085px;height: 90px;margin: 0 auto;padding-top: 10px;padding-left: 15px;}
+#nav h1{width: 190px;height: 90px;background: url(logo.jpg)/*tpa=http://948it.com/internet/zhengquan/images/logo.jpg*/;float: left;}
+#nav h1 a{width: 190px;height: 90px;display: block;}
+.daohang{float: left;margin-left: 15px;}
+.daohang li{float: left;}
+.daohang li a{width: 90px;height: 40px;font-size: 14px;text-align: center;line-height: 40px;margin-top: 50px;display: block;}
+.daohang li a:hover{background:#FE4C40;}
+.daohang li .current{background: #0094CA;color: #fff;}
+.daohang li .current:hover{background: #0094CA;}
+
+.nav_r{float: right;margin-top: 54px;width: 255px;height: 34px;}
+.nav_r .text{width: 158px;height: 32px;border:1px solid #DDDDDD;border-right:0;float: left;color: #DFDDE3;padding-left: 10px;}
+.nav_r .sub{height: 34px;width: 32px;border: 1px solid #DDDDDD;border-left:0;background:url(searsh-1.png)/*tpa=http://948it.com/internet/zhengquan/images/searsh.png*/ no-repeat left top;}
+
+
+/* banner */
+#banner{height: 500px;background:#F8A851 url(banner.png)/*tpa=http://948it.com/internet/zhengquan/images/banner.png*/ no-repeat center top;}
+
+
+/* news */
+#news{height: 615px;background:url(newsbg.png)/*tpa=http://948it.com/internet/zhengquan/images/newsbg.png*/ repeat-x left top;}
+.news_in{height: 575px;width: 1100px;background:#fff;margin: 0 auto;padding-top: 40px;}
+.news_top{height: 30px;width: 1000px;margin: 0 auto;background:url(footerupbg.png)/*tpa=http://948it.com/internet/zhengquan/images/footerupbg.png*/ no-repeat center bottom;margin-bottom: 20px;}
+.news_top h2{font-weight: normal;font-size: 16px;color: #000;float: left;}
+.news_top a{float: right;color:#888888;margin-top: 5px;}
+
+.news_center{height: 156px;width: 1000px;margin: 0 auto;margin-bottom:40px;}
+.news_center dl{float: left;margin-right: 20px;}
+.news_center dd{margin-top: 1px;width: 235px;height: 38px;background:#7C8187 url(icon.png)/*tpa=http://948it.com/internet/zhengquan/images/icon.png*/ no-repeat left center;line-height: 38px;text-align: center;}
+.news_center dd a{color: #fff;width: 235px;height: 35px;display: block;}
+.news_center .finaly{margin-right: 0;}
+
+.news_bottom{height: 300px;width: 1000px;margin: 0 auto;}
+.bot_l{width: 480px;height: 300px;float: left;}
+.bot_l h4{width: 158px;height: 40px;border: 1px solid #D8D8D8;line-height: 40px;text-align: center;font-weight: normal;font-size: 16px;border-bottom: 0;}
+.bot_l h4 a{color: #0094CA;width: 160px;height: 42px;display: block;}
+.txt{height: 246px;border: 1px solid #D8D8D8;padding-top: 10px;}
+.txt li p{float: left;margin-left: 50px;}
+.txt li a{height: 30px;display: block;width: 478px;}
+.txt li a:hover{background:#3AAAEA;}
+.txt li{height: 30px;line-height: 30px;}
+.txt li span{float:right;margin-right: 25px;}
+.bot_r{width: 480px;height: 300px;float:right;}
+
+/* footer */
+#footer{height: 264px;background:url(footerbg.png)/*tpa=http://948it.com/internet/zhengquan/images/footerbg.png*/ repeat-x left top;}
+.footer_up{width: 1000px;height: 120px;margin: 0 auto;background: url(footerupbg.png)/*tpa=http://948it.com/internet/zhengquan/images/footerupbg.png*/ no-repeat center bottom;padding-top: 27px;}
+.footer_up dl{float: left;width: 500px;}
+.footer_up dt{height: 26px;font-size: 16px;color: #000;}
+.footer_up dd{height: 25px;color: #000;line-height: 25px;}
+.footer_down{padding-top: 8px;}
+.footer_down p{text-align: center;line-height: 30px;color:#606060;}
+.footer_down p a:hover{color: #606060;}
+
+
+/* 列表页 */
+
+/* list */
+#list_banner{background: url(list_banner-1.jpg)/*tpa=http://948it.com/internet/zhengquan/images/list_banner.jpg*/ no-repeat center top;height: 300px;}
+
+#list{background:url(newsbg.png)/*tpa=http://948it.com/internet/zhengquan/images/newsbg.png*/ repeat-x left top;}
+.listup{height: 85px;background: url(listupbg.png)/*tpa=http://948it.com/internet/zhengquan/images/listupbg.png*/repeat-x left top;}
+.listup ul{width: 1000px;margin: 0 auto;line-height: 85px;}
+.listup ul li{float: left;width: 200px;text-align: center;font-size: 24px;}
+.listup li a{color:#9B9B9B;}
+.listup li a:hover{color:#0094CA;}
+.listup li.current{background:url(liupbg.png)/*tpa=http://948it.com/internet/zhengquan/images/liupbg.png*/ no-repeat center bottom;}
+.listup li.current a{color:#0094CA;}
+
+.list_in{width: 1100px;margin: 0 auto;background: #fff;padding-top: 30px;}
+.list_in dl{width: 990px;margin: 0 auto;background:#F3F3F3;height: 180px;padding: 6px 5px;margin-bottom: 20px;}
+.list_in dt{float: left;}
+.list_in dt img{width: 358px;height: 178px;border: 1px solid #C0C0C0;}
+.list_in dd{float: right;width: 595px;height: 180px;background: #fff;padding-left: 10px;}
+.list_in dd a{line-height:40px;font-size: 16px;font-weight: normal;color: #333333;}
+.list_in dd a:hover{color:#0094CA;}
+.list_in dd p{line-height: 20px;height: 110px;}
+.list_in dd span{color:#D5D5CC;}
+.list_in .last1{margin-bottom: 0;}
+
+.list_bot{height: 61px;width: 1000px;margin: 0 auto;padding-top: 22px;}
+.list_bot li{float: left;width: 24px;height: 24px;background:url(pagebg.png)/*tpa=http://948it.com/internet/zhengquan/images/pagebg.png*/;text-align: center;line-height: 24px;cursor: pointer;margin-right: 10px;color: #333333;}
+.list_bot .num{width: 54px;height: 24px;background: url(bg2.png)/*tpa=http://948it.com/internet/zhengquan/images/bg2.png*/;}
+.list_bot ul{float: right;margin-right: 30px;}
+.list_bot li.one1{background: url(bg1.png)/*tpa=http://948it.com/internet/zhengquan/images/bg1.png*/;}
+
+
+
+
+/* 详情页 */
+
+/* detail */
+#detail{background:url(newsbg.png)/*tpa=http://948it.com/internet/zhengquan/images/newsbg.png*/;}
+.detail_in{width: 1100px;margin: 0 auto;padding-top: 48px;background: #fff;}
+.up1{width: 1000px;height:59px;border-bottom:1px solid #6E727C;margin: 0 auto;}
+.up1 h3{font-size: 22px;color: #333333;margin-bottom: 8px;}
+.center1{width: 1000px;margin: 0 auto;}
+.center1 .picc{margin:30px auto;width: 890px;height: 508px;display: block;}
+.center1 p{text-indent: 2em;font-size:14px;color: #3E3E3E;}
+.center1 .time{color: #47C1A8;height: 35px;font-weight: bold;}
+.center1 p span{color: #47C1A8;}
+
+.detail_in .bottom{width: 1000px;margin: 0 auto;padding-bottom: 70px;}
+.bottom h4{width: 670px;height: 40px;background: url(liupbbg.png)/*tpa=http://948it.com/internet/zhengquan/images/liupbbg.png*/ no-repeat center top;text-align: center;line-height: 40px;font-size: 18px;font-weight: bold;color: #5F9CEF;margin: 0 auto;margin-top:30px;}
+.bottom p{font-size: 13px;text-indent: 2em;line-height: 20px;}
+.bottom img{display: block;margin: 30px auto;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

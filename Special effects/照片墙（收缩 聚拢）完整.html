@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>照片墙(收缩 聚拢)</title>
+<style>
+	body{background: #000;}
+	.gralley{height: 500px;width: 980px;}
+	.center{position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;}
+	.item{height: 100px;width:196px;position: absolute;background: #fff;transition:all 1.5s;}
+	.pic{height:100%;width:100%;background-size: contain;transform: scale(0.95,0.9);transition:all 1.5s;}
+</style>
+	</head>
+<body>
+<div class="gralley center"></div>		
+		
+</body>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>
+<script>
+	var w=$(".gralley").width()/5;
+	var h=$(".gralley").height()/5;
+	var swich=true;
+	
+	for (var i = 0; i < 25; i++) {
+		var x=i%5;
+		var y=parseInt(i/5);
+		var deg=Math.random()*60-30;
+		$("<div class='item'><div class='pic' style='background-image: url(img/"+i+".jpg)'></div></div>")
+		.css({"left":w*x+'px',
+		"top":h*y+'px',
+		"transform":"translate("+(x-2)*50+"px,"+(y-2)*50+"px) rotate("+deg+"deg)"})
+		.appendTo('.gralley')
+	}
+	
+	
+	$(".item").click(function(){
+		index=$(this).index()
+		if(swich){
+			
+			$(".item").each(function(i){
+			var x=i%5;
+			var y=parseInt(i/5);
+			$(this).css({"transform":"translate(0,0) rotate(0)"})
+			$(".pic").eq(i)
+			.css({"background-position":x*(-w)+'px '+y*(-h)+'px',
+			"background-image":"url(img/"+index+".jpg)",
+			"background-size":"auto","transform":"scale(1)"})
+			})
+			
+		}else{
+			$(".item").each(function(i){
+				var deg=Math.random()*60-30;
+				var x=i%5;
+				var y=parseInt(i/5);
+				$(this).css({"transform":"translate("+(x-2)*50+"px,"+(y-2)*50+"px) rotate("+deg+"deg)"})
+				$(".pic").eq(i)
+				.css({"background-size":"cover",
+				"background-image":"url(img/"+i+".jpg)",
+				"transform":"scale(0.95,0.9)"})
+			})
+		}
+		swich=!swich
+	})
+</script>
+</html>

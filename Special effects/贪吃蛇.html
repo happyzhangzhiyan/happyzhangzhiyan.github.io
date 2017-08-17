@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>贪吃蛇</title>
+	<link rel="stylesheet" href="css/tanchuang.css" />
+	<style type="text/css">
+	
+	.warp{position:absolute;top:20px;right: 280px;height: 200px;width: 200px;}
+	.defen,.start,.pause,.end{position:absolute;left:0;}
+	.defen{top:20px}
+	.start{top:60px}
+	.pause{top:100px}
+	.end{top:140px}
+	#mycanvas{width:800px;position: absolute;left: 0;right: 0;top: 30px;bottom: 0;margin: 0 auto;}
+	</style>	
+	</head>                
+<body>
+	<canvas id="mycanvas" width="800" height="800"></canvas>
+	<div class="warp">
+		<span class="defen">分数:0</span>
+		<button class="start">开 始</button>
+		<button class="pause">暂 停</button>
+		<button class="end">结 束</button>
+	</div>
+	
+</body>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/tanchuang.js" ></script>
+<script type="text/javascript">
+	var mycanvas=document.getElementById("mycanvas")
+		ctx=mycanvas.getContext("2d");
+	var w=25;
+	var num=25;
+	var random_j;
+	var random_i;
+	var timer;
+	var snake_length;  //蛇的长度  
+	var random_arr=[];  //当前出现食物的位置
+	var first_snake=[]; //蛇头的位置
+	var snake=[];		//整个蛇身位置
+	var timer_random;	
+	var time;
+	var timer_bomb;
+	var swich=false;
+	var bol; //方向上下 左右判断；
+	var bomb_j;
+	var bomb_i;
+	//清楚整个网格并重绘
+	function paint(){
+		ctx.clearRect(0,0,mycanvas.width,mycanvas.height)
+		ctx.beginPath();
+		ctx.strokeStyle="#CCCCCC";
+		ctx.lineWidth="2";
+		for(var i=0;i<=num;i++){
+			for(var j=0;j<=num;j++){
+				ctx.strokeRect (w*i,w*j,w,w);	
+			}	
+		}
+		ctx.stroke()
+		ctx.closePath()
+	}	
+	paint();
+	//刷新时 出现随机食物
+	first_random_j=parseInt(Math.random()*num); 
+	first_random_i=parseInt(Math.random()*num);
+	//绘制蛇或者食物
+	function red(j,i,color){
+		ctx.beginPath();
+		ctx.fillStyle=color;
+		ctx.strokeStyle="black"
+		ctx.fillRect(w*j,w*i,w,w);
+		ctx.stroke();
+		ctx.closePath();
+		if(color=="red"){
+			ctx.beginPath();
+			ctx.strokeStyle="#367DFF"
+			ctx.lineWidth=3;
+			ctx.strokeRect(w*j,w*i,w,w)
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.fillStyle = "blue";
+			ctx.textBaseline='middle';
+			ctx.textAlign="center";	
+			ctx.fillText("X",w*j+w/2,w*i+w/2);
+			ctx.stroke();
+			ctx.closePath();
+		}else if(color=="#367DFF"){
+			ctx.beginPath();
+			ctx.strokeStyle="#black"
+			ctx.lineWidth=3;
+			ctx.strokeRect(w*j,w*i,w,w)
+			ctx.stroke();
+			ctx.beginPath();
+			ctx.fillStyle = "black";
+			ctx.textBaseline='middle';
+			ctx.textAlign="center";		
+			ctx.fillText("OO",w*j+w/2,w*i+w/2);
+			ctx.stroke();
+			ctx.closePath();
+		}	
+	}
+	setInterval(function(){
+		bomb_j=parseInt(Math.random()*num); 
+		bomb_i=parseInt(Math.random()*num);
+	},10000)
+	function bomb(){
+		ctx.fillStyle="red";
+		ctx.strokeStyle="red";
+		ctx.lineWidth=0;
+		ctx.moveTo((w*bomb_j+w/2),(w*bomb_i+w/2));
+		ctx.arc((w*bomb_j+w/2),(w*bomb_i+w/2),num/2-3,(Math.PI*2/6),Math.PI*2);
+		ctx.closePath();
+		ctx.stroke();
+		ctx.fill();
+	}
+	//页面刷新时，自动出现随机食物
+	function run(){
+		random_j=parseInt(Math.random()*num); 
+		random_i=parseInt(Math.random()*num);
+		for(var k=0;k<snake.length;k++){
+		//判断出现的食物是否在蛇身上
+			if(random_j==snake[k][0]&&random_i==snake[k][1]){
+				return
+			}
+		//判断出现的炸弹是否在蛇身上	
+			if(bomb_j==snake[k][0]&&bomb_i==snake[k][1]){
+				return
+			}	
+		}
+		if(snake_length%3==0){
+			color="purple";
+			red(random_j,random_i,color);
+		}
+		else if(snake_length%5==0){
+			color="orange";
+			red(random_j,random_i,color);
+			bomb();
+		}
+		else{
+			color="deepskyblue";
+			red(random_j,random_i,color);
+		}
+		random_arr=[random_j,random_i,color];
+	}	
+	$(".start").click(function(){		
+		snake_length=2;
+		clearInterval(timer);
+		run();
+		timer=setInterval(function (){	
+			paint();
+			first_random_j++;
+			if(first_random_j==num+1){
+				first_random_j=0		
+			}	
+			paint_path();
+			snake_path();
+		},500)	
+	swich=true;
+	bol=false;
+	
+	})
+	var pause_bol=true;
+	$(".pause").click(function(){
+		if(pause_bol){
+			clearInterval(timer);
+			pause_bol=!pause_bol;
+		}else{
+			clearInterval(timer);
+			run();
+		}
+	})
+	$(".end").click(function(){
+		paint();
+		clearInterval(timer);
+		$(".defen").html("分数:0")
+	})	
+	//记录蛇跑过的路径
+	function snake_path(){
+		first_snake=[first_random_j,first_random_i]
+		snake.push(first_snake);
+		snake.splice(0,snake.length-1-snake_length);
+	}	
+	function paint_path(){
+		snake_path();
+		paint();
+		//判断是否吃到食物
+			if((first_random_j==random_arr[0])&&(first_random_i==random_arr[1])){						
+				snake_length++;
+				$(".defen").html("分数:"+(snake_length-2));	
+				run();
+				time=500-(snake.length-3)*20;
+			}	
+		//判断是否吃到炸弹
+			if((first_random_j==bomb_j )&& (first_random_i==bomb_i)){
+				time=90;
+				ctx.clearRect(bomb_j*w,bomb_j*w,w,w)				
+			}					
+		//判断蛇头是否经过蛇身
+		for(var k=0;k<snake.length-2;k++){
+			if(snake[snake.length-1][0]==snake[k][0]&&snake[snake.length-1][1]==snake[k][1]){
+				clearInterval(timer);
+				firmBox("你输了!!! 得分:"+(snake_length-2))
+			}		
+		}
+		//画出出现得随机食物
+	
+		red(random_arr[0],random_arr[1],color);
+		
+		//画出蛇
+		for (var k=0;k<snake.length;k++){
+			red(snake[k][0],snake[k][1],"red");
+			red(snake[snake.length-1][0],snake[snake.length-1][1],"#367DFF");
+		}
+		time<=90?time=90:time=500-(snake.length-3)*20;
+		bomb();
+	}
+	
+		$(document).keydown(function(ev){
+			if(swich){
+				
+				if(ev.which==37&&bol){	
+					//当点击左键时 右键不能点击  当点击左键时 右键不能点击
+					clearInterval(timer);
+					timer=setInterval(function(){	
+						if(first_random_j==0){
+							first_random_j=num+1;	
+						}					
+						first_random_j--;
+						paint_path();
+						bol=false;
+					},time)
+				}else if(ev.which==39&&bol){	
+					clearInterval(timer);
+					timer=setInterval(function(){					
+						first_random_j++;
+						if(first_random_j==num+1){
+							first_random_j=0;	
+						}
+						paint_path();
+						bol=false;													
+					},time)
+				}else if(ev.which==38&&bol==false){
+					clearInterval(timer);
+					timer=setInterval(function(){					
+						if(first_random_i==0){
+							first_random_i=num+1;
+						}
+						first_random_i--;
+						paint_path();
+						bol=true;
+					},time)
+				}else if(ev.which==40&&bol==false){
+					clearInterval(timer);
+					timer=setInterval(function(){					
+						if(first_random_i==num){
+							first_random_i=-1;
+						}
+						first_random_i++;
+						paint_path();
+						bol=true;
+					},time)				
+				}
+			}
+			return false;
+		})
+					
+	/*	
+		var snake1 = [
+			{"x":10,"y":6},
+			{"x":10,"y":7},
+			{"x":10,"y":8},
+			{"x":10,"y":9},
+		]
+		
+		for(var i=snake1.length-1;i>=1;i--){	//4
+			snake1[i].x = snake1[i-1].x;
+			snake1[i].y = snake1[i-1].y;
+		}
+		snake1[0].y++
+		
+		*/
+	
+	</script>
+
+</html>

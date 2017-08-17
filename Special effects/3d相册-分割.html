@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3D相册-分割</title>
+<style>
+	body{height: 3000px;}
+	.slide{position: absolute;left:0;right: 0;top: 0;bottom: 0;width: 980px;height: 500px;margin: auto;transform-style: preserve-3d;perspective:5000px;}
+	
+	.pic{position: absolute;top: 0; height: 100%;}
+</style>		
+	</head>
+	<body>
+<div class="slide"></div>		
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>
+	<script>
+	for(var i=0;i<4;i++){
+		$("<div class='item'></div>").appendTo(".slide")
+	}
+	var block=5;
+	var w=$(".slide").width()/block;
+	var h=$(".slide").height();
+	
+	
+		$(".item").each(function(index){
+			for(var j=0;j<block;j++){
+				$("<div class='pic'></div>")
+				.width(w)
+				.height(h)
+				.css({
+				"background-image":"url(img/"+index+".jpg)",
+				"background-position":""+j*(-w)+"px 0px",
+				"left":""+j*w+"px",
+				"transform":"rotateX("+index*90+"deg) translateZ(250px)"
+				}).appendTo($(this))
+			}
+			
+		})
+		
+	var num=0
+	$("body").click(function(){
+		num++;
+		$(".item").each(function(index){
+			var deg=index*90-num*90;
+			
+			$(this).find(".pic").each(function(i){
+				delay=i*0.2;
+				
+				$(this).css({
+					"transition":"transform 0.5s "+delay+"s",
+					"transform":"rotateX("+deg+"deg) translateZ(250px)"
+				
+				})
+			})
+			
+			
+		})
+		
+	})
+	
+	</script>
+	</body>
+</html>

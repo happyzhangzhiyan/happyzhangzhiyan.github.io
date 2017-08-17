@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas钟表</title>
+		<style>
+			#mycanvas{background:#CCCCCC;}
+			.warp{width: 500px;margin: 0 auto;}
+		</style>
+	</head>
+	<body>
+		<div class="warp">
+			<canvas id="mycanvas" height="500" width="500"></canvas>
+		</div>
+		
+	<script>
+		var can=document.getElementById("mycanvas")
+		var ctx=can.getContext("2d");
+		var r=240
+		var x1,y1,x2,y2,len;
+		function draw(n){
+			
+			ctx.beginPath()
+			ctx.fillStyle="black"
+			ctx.arc(250,250,5,0,Math.PI*2);
+			ctx.fill();
+			ctx.closePath()
+			ctx.stroke();
+			var deg=Math.PI/30*n-(Math.PI/2)
+			
+			if(n%5==0){
+				len=15;
+				ctx.lineWidth=4;
+				if(n==0){
+					n=60
+				}
+				
+				ctx.strokeStyle="red";
+				ctx.font="20px arial";
+				ctx.textAlign="center";
+				ctx.textBaseline="middle";
+				ctx.fillStyle="darkgoldenrod"
+				ctx.fillText(n/5,x2,y2)
+				ctx.stroke()
+			}else{
+				len=5;
+				ctx.lineWidth=2;
+				ctx.strokeStyle="black";
+			}
+			
+			x1=250+(r-len)*Math.cos(deg);
+			y1=250+(r-len)*Math.sin(deg);
+			
+			x2=250+Math.cos(deg)*r;
+			y2=250+Math.sin(deg)*r;
+			ctx.beginPath()
+			ctx.moveTo(x1,y1)
+			ctx.lineTo(x2,y2)
+			ctx.closePath()
+			ctx.stroke()
+		}
+		function run(){
+			
+			ctx.clearRect(0,0,500,500)
+			
+			
+			for (var i=0;i<60;i++) {
+			draw(i)
+			}
+			var data=new Date()
+			var s=data.getSeconds()
+			var s_deg=Math.PI/30*s-(Math.PI/2);
+			var ss_deg=Math.PI/30*s-(Math.PI/2+Math.PI)
+			var m=data.getMinutes()
+			var m_deg=Math.PI/30*(m+s/60)-(Math.PI/2)
+			var h=data.getHours()
+			var h_deg=Math.PI*2/12*(h+s/3600+m/60)-(Math.PI/2)
+			
+			function line(n_deg,h,color,w){
+				s_x1=250
+				s_y1=250
+				
+				s_x2=250+Math.cos(n_deg)*h;
+				s_y2=250+Math.sin(n_deg)*h;
+				ctx.beginPath();
+				ctx.strokeStyle=color;
+				ctx.lineCap="round";
+				ctx.lineWidth=w;
+				ctx.moveTo(s_x1,s_y1)
+				ctx.lineTo(s_x2,s_y2)
+				ctx.closePath()
+				ctx.stroke()
+				
+			}
+			line(ss_deg,30,"red",2)
+			line(s_deg,210,"red",2)
+			line(m_deg,170,"black",4)
+			line(h_deg,100,"black",6)
+							
+		}
+		run()
+		
+	
+		setInterval(run,1000)
+		
+	</script>
+		
+	</body>
+</html>

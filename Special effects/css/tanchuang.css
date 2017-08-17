@@ -1,0 +1,8 @@
+*{margin: 0;padding: 0;}
+.modal{height:100%;width:100%;position:fixed;top:0;left0;z-index:90;opacity:.5;background: gold;}
+button{height:40px;width:100px;}
+.box{height:400px;width:600px;background:#ccc;text-align: center;border-radius: 20px;position: absolute;z-index: 100;}
+p{font-size:40px;padding:70px 0 90px 0;font-weight: bold;}
+.box .btn{height:80px;width:200px;cursor:pointer;margin: 0 auto;background:papayawhip;border: none;}
+.firmbox{height:260px;width:400px;background:#bbb;text-align: center;border-radius: 20px;position: absolute;z-index: 100;text-align: center;opacity: .95;}
+.proptmpt{height:400px;width:600px;background:#ccc;text-align: center;border-radius: 20px;position: absolute;z-index: 100;}

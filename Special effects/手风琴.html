@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>手风琴</title>
+<style>
+*{margin: 0;padding: 0;}
+ul,li{list-style: none;}
+.box{width: 980px;height:500px;position: absolute;left:0;right: 0;top: 0;bottom: 0;margin: auto;overflow: hidden;}
+.warp{width:100%;height:100%;position: absolute;}
+.warp li{height:500px;position: absolute;background-image: url(img/0.jpg);z-index: 10;}
+.item1{height:500px;position: absolute;background-image: url(img/0.jpg)}
+.tab{position:absolute;left:40%;bottom: 5%;z-index: 20;}
+.item{float: left;height: 30px;cursor: pointer; width: 30px;background: yellowgreen;text-align: center;line-height: 30px;border-radius: 50%;margin: 0 5px;}
+.tab .ac{background: #FFFFFF;}
+.warp1{width:100%;height:100%;position: absolute;left: 0;top: 0;z-index: 15;}
+
+</style>
+	</head>
+<body>
+<div class="box">
+	<ul class="tab"></ul>
+	<ul class="warp"></ul>
+	<ul class="warp1"></ul>
+</div>
+	
+<script type="text/javascript" src="js/jquery-1.11.3.min.js" ></script>
+<script>
+	var w=$(".warp").width()/4;
+	var ind=[0];
+	$(".warp").css({"left":-w,"top":0})
+	for(var i=0;i<4;i++){
+		$("<li></li>")
+		.css({
+			"left":i*w+'px',"top":0,
+			"background-position":i*(-w)+'px',
+			"width":w+'px'
+		}).appendTo(".warp");
+		
+		$("<li class='item1'></li>")
+		.css({
+			"right":(3-i)*w+'px',"top":0,
+			"background-position":i*(-w)+'px',
+			"width":w+'px'
+		}).appendTo(".warp1")
+		
+		$("<li class='item'>"+(i+1)+"</li>").appendTo(".tab")
+		$(".item").eq(0).addClass("ac")
+	}
+	
+	$(".item").click(function(){
+		$(".item1").width(w)
+		var index=$(this).index();
+		ind.push(index)
+		var i=ind[ind.length-2]
+
+		$(this).addClass("ac").siblings().removeClass("ac")
+		$(".item1")
+		.css({
+			"background-image":"url(img/"+i+".jpg)"
+		}).stop().animate({"width":0},800)
+	
+		$(".warp")
+		.css({
+			"left":-w
+		}).stop().animate({"left":0},800)
+		.find("li")
+		.css({
+			"background-image":"url(img/"+index+".jpg)"
+		}).stop().animate({"width":w},800)
+	})
+</script>	
+</body>
+</html>

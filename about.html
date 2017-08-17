@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个人资料</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<style type="text/css">
+		body{background-color: #9acde2;background-repeat: repeat;}
+		#banner{width: 100%;height:300px;margin-bottom: 50px;}
+		.slide{position: relative;left:0;right: 0;top: -38px;bottom: 0;width:100%;height: 300px;margin-top: 50px; transform-style: preserve-3d;perspective:2000px;}
+	    .item{position: absolute;left: 0;top: 0;width: 100%;height: 100%;transition: all 2s;display: flex;align-items: center;justify-content: center;transform-origin: center;}
+	    .item img{width: 100%;height: 100%;}
+	    .item h3{font-size: 24px;position: absolute;z-index: 20;display: inline;top: 20%;color: #FFFFFF;}
+	   
+	    .banner_btn{width: 200px;height: 50px;line-height: 34px;font-size: 24px;position: absolute;z-index: 20;}
+	    .nav-tabs{border: none;margin-bottom: 30px;}
+	    .about{color: #fff;font-size: 40px;font-style: italic;}
+	    .about .left,.about .right{padding: 15px}
+	    .about ul li{font-size: 16px;}
+	    .about img{ width: 70%;display: inline-block;}
+	   
+		</style>
+	</head>
+	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js" ></script>
+    <script>
+
+window.onload=function(){
+
+    // 1 获取画布对象
+	var cvs=document.getElementById("cvs");
+	var cvs1=document.getElementById("cvs1");
+	var cvs2=document.getElementById("cvs2");
+	var cvs3=document.getElementById("cvs3");
+	var cvs4=document.getElementById("cvs4");
+	var cvs5=document.getElementById("cvs5");
+	var ctx=cvs.getContext("2d");
+	var ctx1=cvs1.getContext("2d");
+	var ctx2=cvs2.getContext("2d");
+	var ctx3=cvs3.getContext("2d");
+	var ctx4=cvs4.getContext("2d");
+	var ctx5=cvs5.getContext("2d");
+
+	// 2 确定圆环的参数
+	var w=cvs.width;
+	var w1=cvs1.width;
+	var w2=cvs2.width;
+	var w3=cvs3.width;
+	var w4=cvs4.width;
+	var w5=cvs5.width;
+	var h=cvs.height;
+	var h1=cvs1.height;
+	var h2=cvs2.height;
+	var h3=cvs3.height;
+	var h4=cvs4.height;
+	var h5=cvs5.height;
+	ctx.lineWidth=16;
+	ctx1.lineWidth=16;
+	ctx2.lineWidth=16;
+	ctx3.lineWidth=16;
+	ctx4.lineWidth=16;
+	ctx5.lineWidth=16;
+	
+	// 坐标
+	var x=w/2;
+	var x1=w1/2;
+	var x2=w2/2;
+	var x3=w3/2;
+	var x4=w4/2;
+	var x5=w5/2;
+	var y=h/2;
+	var y1=h1/2;
+	var y2=h2/2;
+	var y3=h3/2;
+	var y4=h4/2;
+	var y5=h5/2;
+	
+	// 半径
+	var r=Math.min(w,h)/2-ctx.lineWidth/2;
+	var r1=Math.min(w1,h1)/2-ctx1.lineWidth/2;
+	var r2=Math.min(w2,h2)/2-ctx2.lineWidth/2;
+	var r3=Math.min(w3,h3)/2-ctx3.lineWidth/2;
+	var r4=Math.min(w4,h4)/2-ctx4.lineWidth/2;
+	var r5=Math.min(w5,h5)/2-ctx5.lineWidth/2;
+	
+	var target=0.85;
+	var target1=0.9;
+	var target2=0.65;
+	var target3=0.85;
+	var target4=0.8;
+	var target5=0.85;
+	
+	var total=20;
+	
+	var progress=0;
+	
+	// 3 绘制进度条
+	function draw(){
+		
+		  if(progress>total) {
+			  return false;  
+		  }
+		  
+		  ctx.clearRect(0,0,w,h);
+		  ctx1.clearRect(0,0,w1,h1);
+		  ctx2.clearRect(0,0,w2,h2);
+		  ctx3.clearRect(0,0,w3,h3);
+		  ctx4.clearRect(0,0,w4,h4);
+		  ctx5.clearRect(0,0,w5,h5);
+
+	      // 3.1 绘制背景进度条
+		  ctx.beginPath();
+		  ctx.strokeStyle="#3E2D2E";
+		  ctx.arc(x,y,r,0,Math.PI*2);
+		  ctx.stroke();
+		  
+		  ctx1.beginPath();
+		  ctx1.strokeStyle="#3E2D2E";
+		  ctx1.arc(x1,y1,r1,0,Math.PI*2);
+		  ctx1.stroke();
+		  
+		  ctx2.beginPath();
+		  ctx2.strokeStyle="#3E2D2E";
+		  ctx2.arc(x2,y2,r2,0,Math.PI*2);
+		  ctx2.stroke();
+		  
+		  ctx3.beginPath();
+		  ctx3.strokeStyle="#3E2D2E";
+		  ctx3.arc(x3,y3,r3,0,Math.PI*2);
+		  ctx3.stroke();
+		  
+		  ctx4.beginPath();
+		  ctx4.strokeStyle="#3E2D2E";
+		  ctx4.arc(x4,y4,r4,0,Math.PI*2);
+		  ctx4.stroke();
+		  
+		  ctx5.beginPath();
+		  ctx5.strokeStyle="#3E2D2E";
+		  ctx5.arc(x5,y5,r5,0,Math.PI*2);
+		  ctx5.stroke();
+		  
+		  
+		  var rate=progress/total;
+		  
+		  // rate 0 0.1 0.2 ... 1
+		  
+		  // 3.2 绘制活动进度条
+		  var start=Math.PI*3/2*rate;  
+		  
+		  // 0-->Math.PI*3/2 
+		  
+		  var p=target*rate;
+		  var p1=target1*rate;
+		  var p2=target2*rate;
+		  var p3=target3*rate;
+		  var p4=target4*rate;
+		  var p5=target5*rate;
+		  
+		  var end=Math.PI*2*p+start;
+		  var end1=Math.PI*2*p1+start;
+		  var end2=Math.PI*2*p2+start;
+		  var end3=Math.PI*2*p3+start;
+		  var end4=Math.PI*2*p4+start;
+		  var end5=Math.PI*2*p5+start;
+		  
+		  ctx.beginPath();
+		  ctx.lineCap="round";
+		  ctx.strokeStyle="purple";
+		  ctx.arc(x,y,r,start,end);
+		  ctx.stroke();
+		  
+		  ctx1.beginPath();
+		  ctx1.lineCap="round";
+		  ctx1.strokeStyle="purple";
+		  ctx1.arc(x1,y1,r1,start,end1);
+		  ctx1.stroke();
+		  
+		  ctx2.beginPath();
+		  ctx2.lineCap="round";
+		  ctx2.strokeStyle="purple";
+		  ctx2.arc(x2,y2,r2,start,end2);
+		  ctx2.stroke();
+		  
+		  ctx3.beginPath();
+		  ctx3.lineCap="round";
+		  ctx3.strokeStyle="purple";
+		  ctx3.arc(x3,y3,r3,start,end3);
+		  ctx3.stroke();
+		  
+		  ctx4.beginPath();
+		  ctx4.lineCap="round";
+		  ctx4.strokeStyle="purple";
+		  ctx4.arc(x4,y4,r4,start,end4);
+		  ctx4.stroke();
+		  
+		  ctx5.beginPath();
+		  ctx5.lineCap="round";
+		  ctx5.strokeStyle="purple";
+		  ctx5.arc(x5,y5,r5,start,end5);
+		  ctx5.stroke();
+		  
+		  ctx.font="25px arial";
+		  ctx.fillStyle="orange";
+		  ctx.textAlign="center";
+		  ctx.textBaseline="middle";
+		  
+		  ctx1.font="25px arial";
+		  ctx1.fillStyle="orange";
+		  ctx1.textAlign="center";
+		  ctx1.textBaseline="middle";
+		  
+		  ctx2.font="25px arial";
+		  ctx2.fillStyle="orange";
+		  ctx2.textAlign="center";
+		  ctx2.textBaseline="middle";
+		  
+		  ctx3.font="25px arial";
+		  ctx3.fillStyle="orange";
+		  ctx3.textAlign="center";
+		  ctx3.textBaseline="middle";
+		  
+		  ctx4.font="25px arial";
+		  ctx4.fillStyle="orange";
+		  ctx4.textAlign="center";
+		  ctx4.textBaseline="middle";
+		  
+		  ctx5.font="25px arial";
+		  ctx5.fillStyle="orange";
+		  ctx5.textAlign="center";
+		  ctx5.textBaseline="middle";
+		  
+		  var p=(p*100).toFixed(2)+"%";
+		  var p1=(p1*100).toFixed(2)+"%";
+		  var p2=(p2*100).toFixed(2)+"%";
+		  var p3=(p3*100).toFixed(2)+"%";
+		  var p4=(p4*100).toFixed(2)+"%";
+		  var p5=(p5*100).toFixed(2)+"%";
+		  
+		  ctx.fillText(p,x,y)
+		  ctx1.fillText(p1,x1,y1)
+		  ctx2.fillText(p2,x2,y2)
+		  ctx3.fillText(p3,x3,y3)
+		  ctx4.fillText(p4,x4,y4)
+		  ctx5.fillText(p5,x5,y5)
+
+		  progress++;
+   	      
+	}
+	
+	
+	//draw();
+	
+	setInterval(draw,100)
+
+    		
+}
+
+</script>
+
+<body>
+	<div id="wrap"></div>	
+    <div id="banner">
+    	<div class="slide"></div>
+    </div>
+
+<div class="container">
+	<div class="row">
+		<ul class="nav nav-tabs col-md-12" role="tablist">
+		    <li role="presentation" class="active"><a href="#resume" aria-controls="resume" role="tab" data-toggle="tab">简介</a></li>
+		    <li role="presentation"><a href="#life" aria-controls="life" role="tab" data-toggle="tab">生活</a></li>
+		    <li role="presentation"><a href="#dream" aria-controls="dream" role="tab" data-toggle="tab">专业技能</a></li>
+		    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+    	</ul>
+	</div>
+</div>
+    <div class="tab-content container about">
+  		<div role="tabpanel" class="tab-pane row active" id="resume">
+  			<div class="left col-md-6">
+  				张智琰
+                <p style="font-size:1.5rem">学习能力强，逻辑思维优秀，喜欢钻研，做事有责任心，且有较强的适应能力; 具有团队协做的精神。<br />
+喜欢发散思维，研究数学问题，喜欢钻研，头脑灵活；</p>
+  			</div>
+  			<div class="left col-md-6 text-center">
+  				<img src="180.3.jpg">
+  			</div>
+  		</div>
+    	<div role="tabpanel" class="tab-pane row" id="life">
+    	<div class="left col-md-6 text-center">
+			<img src="292495.jpg">
+		</div>
+		<div class="left col-md-6" style="font-size:2rem">
+			兴趣爱好广泛，知识涉及面广。<br>数学是强项<br>
+       	    艺术也全面发展，从小学学习美术，架子鼓。<br>
+            总之爱好十分广泛，都有所涉及。
+		</div>
+    </div>
+    	<div role="tabpanel" class="tab-pane row" id="dream">
+    	<div class="left col-md-6">
+		<ul>
+			<li>◆ 精通掌握 HTML5、CSS3 等前端开发技术，熟练使用 Canvas、video、audio等的 HTML5 的新标签；</li>
+			<li>◆ 精通掌握 JavaScript、DOM、BOM 等基础操作,熟练使用 jQuery来提高开发效率，精简代码；</li>
+			<li>◆ 熟练掌握Bootstrap(响应式布局，移动端布局)，能够写出符合 W3C 标准的代码；</li>
+			<li>◆ 熟练按照设计稿快速搭建项目，处理好浏览器的兼容问题；</li>
+			<li>◆ 熟练掌握 AJAX 工作原理，能运用 AJAX 与后台进行交互；</li>
+			<li>◆ 精通Regular Expression的使用，能够运用正则表达式处理前端的一些较为复杂的字符串。</li>
+			<li>◆ 了解一定的 vue.js 知识。能够完成一些小型项目的搭建过程</li>
+		</ul>	
+		</div>
+		<div class="left col-md-6 text-center" >
+			<img src="img/settings.png" class="img-responsive"/>
+		</div>
+    </div>
+    <div role="tabpanel" class="tab-pane row" id="settings">
+    	<div class="left col-md-2">
+        	<img src="img/7-140119235512218.jpg" style="border-radius:30%; height:100px;">
+			<canvas id="cvs" style="position:relative; top:10px; left:-93px"></canvas>
+		</div>
+    	<div class="left col-md-2">
+        	<img src="img/116693678.jpg" style="border-radius:30% ;margin-top:11px;">
+			<canvas id="cvs1" style="position:relative; top:23px; left:-93px"></canvas>
+		</div>
+    	<div class="left col-md-2">
+        	<img src="img/20131127142543-1949678717.jpg" style="border-radius:30%">
+			<canvas id="cvs2" style="position:relative; top:10px; left:-93px"></canvas>
+		</div>
+    	<div class="left col-md-2">
+        	<img src="img/u=3859697310,779135286&fm=26&gp=0.jpg" style="border-radius:30%; height:100px;">
+			<canvas id="cvs3" style="position:relative; top:10px; left:-93px"></canvas>
+		</div>
+    	<div class="left col-md-2">
+        	<img src="img/u=52187605,64938088&fm=214&gp=0.jpg" style="border-radius:30%;height:100px;">
+			<canvas id="cvs4" style="position:relative; top:10px; left:-93px"></canvas>
+		</div>
+    	<div class="left col-md-2">
+        	<img src="img/01300542914691142113703740211_s.png" style="border-radius:30%;height:100px;">
+			<canvas id="cvs5" style="position:relative; top:10px; left:-93px"></canvas>
+		</div>
+    </div>
+  </div>
+
+ 
+
+		
+	</body>
+<script type="text/javascript">
+
+	/*$.ajax({
+		type:"get",
+		url:"temeplate/header.html",
+		async:true,
+		success:function(data){
+			$("#wrap").html(data);
+			$("#wrap .nav li").eq(1).addClass("active")
+		}
+	});*/
+	
+	var item_arr=["旋转轮播图","放大镜","太阳系","照片墙"]	
+	for(var i=0;i<4;i++){
+		$("<div class='item'><h3>"+item_arr[i]+"</h3><img class='img-responsive' src='img/carousel"+(i+1)+".png'/><a class='btn btn-success banner_btn' href='Special effects/Special effects.html' target='_blank'>点击查看</a></div>").css({
+			"transform":"rotateX("+(i*90)+"deg) translateZ(150px)"
+		}).appendTo(".slide")
+		
+	}
+	var num=0;
+	var timer=null;
+	function run(){
+		num++;
+		$(".item").each(function(index){
+			var deg=index*90-num *90;
+			$(this).css({
+				"transform":"rotateX("+deg+"deg) translateZ(150px)"
+			})
+		})
+	
+	}
+	timer=setInterval(run,2000)
+	
+	$("#banner").mouseenter(function(){
+		clearInterval(timer)
+	})
+	$("#banner").mouseleave(function(){
+		timer=setInterval(run,2000)
+	})
+	</script>
+	
+</html>

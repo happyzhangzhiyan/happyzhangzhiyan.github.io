@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+#calendar{width:210px; overflow:hidden;border:1px solid #000; padding:20px; position:relative;text-align:center;top:80px;left:40%;}
+#calendar .a1{ position:absolute;top:20px;left:20px;color:red}
+#calendar .a2{ position:absolute;top:20px;right:20px;color:red}
+#calendar .week{height:30px; line-height:20px;border-bottom:1px solid #000;color:#FFFFFF;}
+#calendar .week li{ float:left;width:30px;height:30px; text-align:center; list-style:none;}
+#calendar .dateList{ overflow:hidden; clear:both}
+#calendar .dateList li{float:left;width:30px;height:30px; text-align:center; line-height:30px;list-style:none;color:#000000;}
+#calendar .dateList .ccc{ color:#ccc;}
+#calendar .dateList .red{ background:#EF8F23; color:#fff;}
+#calendar .dateList .sun{ color:red;}
+</style>
+</head>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+	var now=0
+	var num=0
+	var sel=$('select')
+	var oDate=new Date;
+	sel.eq(0).val(oDate.getFullYear());
+	sel.eq(1).val(oDate.getMonth()+1)
+	function run(n){
+		var year1=sel.eq(0).val();
+		var month1=sel.eq(1).val()-1;
+		var oDate=new Date;
+		oDate.setFullYear(year1,month1)
+		var year=oDate.getFullYear();
+		var today=oDate.getDate()
+		var month=oDate.getMonth()
+		var allDays=oDate.getDate(oDate.setMonth(month+1,0))
+		oDate.setDate(1)
+		var first_week=oDate.getDay()
+		$('.dateList').empty();
+		for(var j=0; j<first_week; j++ ){
+			$('.dateList').append('<li></li>');
+		};
+		for(var i=0;i<allDays; i++){
+			$('.dateList').append('<li>'+(i+1)+'</li>');
+		};
+		var	 aLi=$('.dateList li');
+		aLi.each(function(i){
+			var _this=$(this);
+			
+			if(_this.text()<today&&n==0||n<0){
+				_this.addClass('ccc')
+			}
+			
+			else if(_this.text()==today&&n==0){
+				_this.addClass('red')
+			}
+			
+			else{
+				if(i%7==0 || i%7==6&&n>=0){
+					_this.addClass('sun')	
+				}
+			}	
+		});
+		old=[year,month]
+		return old
+	}
+var arr=run(now)
+sel.change(function(){
+	sel.eq(0).val()
+	sel.eq(1).val()-1
+	if(sel.eq(0).val()==arr[0]){
+		if(sel.eq(1).val()!=arr[1]){
+			now=sel.eq(1).val()-1-arr[1]
+		}else{
+			now=0
+		}
+	}else{
+		now=(sel.eq(0).val()-arr[0])*12+(sel.eq(1).val()-1-arr[1])
+		}
+	run(now)
+		num=sel.eq(1).val()-1-oDate.getMonth()
+})
+$('.a1').click(function(){
+		num--;
+		now--;
+		if(parseInt(sel.eq(0).val())-1<2015&&oDate.getMonth()+1+num<1){
+			alert("无法查阅")
+			return
+		}
+		if(oDate.getMonth()+1+num<1){
+			sel.eq(0).val(parseInt(sel.eq(0).val())-1)
+			num=0
+			oDate.setMonth(11)
+		}
+		sel.eq(1).val(oDate.getMonth()+1+num)
+		run(now);
+	});
+	$('.a2').click(function(){
+		num++
+		now++;
+		if(parseInt(sel.eq(0).val())+1>2019&&oDate.getMonth()+1+num>12){
+			alert("无法查阅")
+			return
+		}
+		if(oDate.getMonth()+1+num>12){
+			console.log(sel.eq(0).val()+1)
+			sel.eq(0).val(parseInt(sel.eq(0).val())+1)
+			num=0
+			oDate.setMonth(0)
+		}
+		sel.eq(1).val(oDate.getMonth()+1+num)
+		run(now);
+	});
+})
+</script>
+<body>
+<div id="calendar">
+       <select>
+       		<option value="2015">2015年</option>
+            <option value="2016">2016年</option>
+            <option value="2017" selected>2017年</option>
+            <option value="2018">2018年</option>
+            <option value="2019">2019年</option>
+       </select>
+       <select>
+       		<option value="1">01月</option>
+            <option value="2">02月</option>
+            <option value="3">03月</option>
+            <option value="4">04月</option>
+            <option value="5">05月</option>
+            <option value="6">06月</option>
+            <option value="7">07月</option>
+            <option value="8">08月</option>
+            <option value="9">09月</option>
+            <option value="10">10月</option>
+            <option value="11">11月</option>
+            <option value="12">12月</option>
+       </select>
+       <a href="javascript:;" class="a1">上月</a>
+       <a href="javascript:;" class="a2">下月</a>
+    <ul class="week">
+    	<li>日</li>
+    	<li>一</li>
+    	<li>二</li>
+    	<li>三</li>
+    	<li>四</li>
+    	<li>五</li>
+    	<li>六</li>
+    </ul>
+    <ul class="dateList">
+    </ul>
+</body>
+</html>

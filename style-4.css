@@ -1,0 +1,173 @@
+/* CSS Document */
+
+/*清除默认样式*/
+body,div,span,p,a,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,input,img{padding: 0;margin: 0;border: 0;list-style: none;outline:none;}
+body{color: #8D9097;font-family: "微软雅黑";font-size:12px;background:#F6F6F6;}
+a{text-decoration: none;color:#8D9097;}
+a:hover{text-decoration: underline;color: #000;}
+
+
+/* 首页 */
+
+/* header */
+#header{height: 87px;width: 1000px;margin: 0 auto;padding-top: 15px;}
+#header h1{width: 128px;height: 65px;background:url(logo-2.png)/*tpa=http://948it.com/internet/kaidaer/images/logo.png*/ no-repeat;float: left;}
+#header h1 a{width: 128px;height: 65px;display: block;}
+.header_r{float: right;height: 62px;width: 140px;}
+.header_r p{text-align: right;line-height: 39px;}
+.header_r p a:hover{text-decoration: none;}
+.search .text{width: 121px;height: 23px;background:url(searchl.png)/*tpa=http://948it.com/internet/kaidaer/images/searchl.png*/ no-repeat;float: left;}
+.search .sousuo{width: 19px;height: 23px;background:url(searchr.png)/*tpa=http://948it.com/internet/kaidaer/images/searchr.png*/ no-repeat;float: left;}
+
+/* nav */
+#nav{height: 47px;border-top:1px solid #D4D4D4;background:url(navbg.png)/*tpa=http://948it.com/internet/kaidaer/images/navbg.png*/ repeat-x left top;}
+.nav_in{width: 1000px;margin:0 auto;}
+.nav_in li{float: left;line-height: 46px;font-size: 14px;width: 120px;height: 46px;text-align: center;}
+.nav_in li a{color: #3d3d3d;}
+.nav_in li a{text-decoration: none;}
+
+/* banner */
+#banner{height: 437px;width: 100%;margin-top: 10px;position: relative;overflow: hidden;}
+
+
+/* content */
+#content{height: 139px;border-top:1px solid #E3E7E9;background: url(conbg.png)/*tpa=http://948it.com/internet/kaidaer/images/conbg.png*/ repeat-x left top;margin-bottom:37px;}
+.con_in{width: 1000px;margin: 0 auto;height: 132px;}
+.con_in .jianl{background:url(conl.png)/*tpa=http://948it.com/internet/kaidaer/images/conl.png*/ no-repeat left center;width: 20px;height: 35px;float: left;width: 20px;height: 132px;}
+.con_in .box1{float: left;width: 930px;height: 105px;padding-top: 27px;margin-left: 25px;}
+.con_in .box1 dl{margin-right: 35px;float: left;}
+.con_in .box1 .last{margin: 0;}
+.con_in dt{float: left;margin-right: 10px;}
+.con_in dd{float: left;width: 192px;}
+.con_in dd a{width: 192px;height: 82px;display: block;}
+.con_in dd span{font-size: 13px;font-weight: bold;color: #404040;line-height: 35px;}
+.con_in dd a:hover{text-decoration: none;color: #000;}
+.con_in .jianr{background:url(conr.png)/*tpa=http://948it.com/internet/kaidaer/images/conr.png*/ no-repeat right center;width: 20px;height: 35px;float:right;width: 20px;height: 132px;}
+
+
+/* news */
+#news{height: 340px;width: 1000px;margin: 0 auto;margin-bottom: 60px;}
+.new_top{height: 108px;line-height: 108px;}
+.new_top h2{float: left;font-weight: bold;font-size: 23px;color: #454546;}
+.new_top h2 span{color:#A0A0A0;font-weight: normal;margin-left: 10px;}
+.new_top a{float: right;font-size: 24px;}
+.new_top a:hover{color:#3FC8F4;text-decoration: none;}
+
+.new_down{height: 272px;}
+.new_down dl{width: 229px;height: 272px;float: left;background: #fff;margin-right: 28px;}
+.new_down .text1{padding-left: 15px;}
+.new_down .text1 h3{color: #2F2F2F;line-height: 42px;}
+.new_down .text1 a{width: 195px;display: block;}
+.new_down .text1 a:hover{text-decoration: none;color:#8D9097;}
+.new_down .bottom{height: 24px;border-top:1px solid #E3E7E9;margin-top: 15px;background:url(time.png)/*tpa=http://948it.com/internet/kaidaer/images/time.png*/ no-repeat left top;line-height: 22px;padding-left: 32px;}
+.new_down .zuihou{margin: 0;}
+
+/* footer */
+#footer{height: 331px;border-top: 1px solid #DBDBDB;background: #FCFCFC;}
+.footer_in{width: 1000px;margin: 0 auto;height: 331px;}
+.footer_up{height: 210px;padding-top: 50px;}
+.footer_up dl{float: left;width: 113px;}
+.footer_up dt{font-size:14px;color: #000;height: 32px;}
+.footer_up dd{line-height: 20px;}
+.footer_up dd a:hover{text-decoration: none;color: #008EDD;}
+.footer_up .photo{width: 233px;}
+.footer_up .photo .meail{padding-left: 26px;background:url(meail.png)/*tpa=http://948it.com/internet/kaidaer/images/meail.png*/ no-repeat left center;}
+.footer_up .photo .sina{background:url(sina-1.png)/*tpa=http://948it.com/internet/kaidaer/images/sina.png*/ no-repeat left center;padding-left: 26px;margin-bottom: 15px;}
+.footer_up .shipin{float: left;width: 199px;line-height: 20px;font-size:14px;}
+.footer_up .shipin p{float: left;color: #000;}
+.footer_up .shipin a{float: right;}
+.footer_up .shipin a:hover{float: right;text-decoration: none;color:#008EDD;}
+
+.footer_down{height: 71px;line-height: 20px;}
+.footer_down .lianjie{float: left;}
+.footer_down .lianjie a:hover{text-decoration: none;color:#008EDD;}
+.footer_down .lastest{float: right;}
+.footer_down .lastest a{margin-left: 100px;}
+.footer_down .lastest a:hover{text-decoration: none;color:#008EDD;}
+
+
+
+/* 列表页 */
+
+/* list */
+
+#list_banner{height: 246px;background:url(listbg.jpg)/*tpa=http://948it.com/internet/kaidaer/images/listbg.jpg*/ no-repeat center top;}
+.xinwen{width: 1000px;margin: 0 auto;}
+.xinwen img{margin-top:171px;}
+
+#list{background:#fff;}
+.list_in{width: 1000px;margin: 0 auto;overflow: hidden;}
+.list_l{width: 213px;float: left;}
+.list_l a{width: 175px;padding-left: 38px;display: block;font-size: 14px;}
+.list_l .a2:hover{color:#5F5F5F;text-decoration: none;background-position: 0 0;}
+.list_l .a1{height: 34px;line-height: 34px;background: url(a.jpg)/*tpa=http://948it.com/internet/kaidaer/images/a.jpg*/ no-repeat left top;color: #5f5f5f;}
+.list_l .a2{height: 33px;line-height: 33px;background: url(a.jpg)/*tpa=http://948it.com/internet/kaidaer/images/a.jpg*/ no-repeat left bottom;color: #fff;}
+
+.list_r{width: 733px;float:right;padding-top: 22px;}
+.top{height: 40px;line-height: 40px;background:url(listbg2.png)/*tpa=http://948it.com/internet/kaidaer/images/listbg2.png*/ repeat-x left center;}
+.top p{float: right;}
+.top p a:hover{text-decoration: none;color:#008EDD;}
+.center{height: 61px;border-bottom:1px dashed #D1D1D1;line-height: 61px;}
+.center p{font-size: 16px;color:#434343;}
+.down{height: 900px;}
+.down .box2{overflow: hidden;border-bottom:1px dashed #d1d1d1;}
+.down .box2 dt{float: left;}
+.down .box2 dd{float: left;width: 495px;line-height:18px;padding-top: 23px;}
+.down .box2 span{font-weight: bold;color:#232323;}
+.down .box2 a{float:right;margin-top: 50px;width: 88px;height: 24px;line-height: 24px;background: url(news_06.jpg)/*tpa=http://948it.com/internet/kaidaer/images/news_06.jpg*/ no-repeat;text-align: center;}
+.down .box2 a:hover{background-position: -89px 0;text-decoration: none;color: #fff;}
+.down .box2 .a3{margin-top: 30px;}
+.down .box2 .a4{margin-top:0;}
+.down .box2 .a5{margin-top:15px;}
+
+.page{height: 155px;}
+.page ul{width: 200px;height: 36px;margin-top: 40px;}
+.page li{width: 36px;height: 36px;background:#F4F4F4;line-height: 36px;text-align: center;float: left;margin-right:5px;}
+.page li a{width: 36px;height: 36px;display: block;}
+.page li.you{margin: 0;}
+.page .first{background: #0268AC;}
+.page .first a{color: #fff;}
+.page li a:hover{text-decoration: none;}
+.page li a:hover{color: #fff;background:#969696;}
+
+
+
+#detail{background: #FFFFFF;}
+.detail_in{width: 1000px;margin: 0 auto;overflow: hidden;}
+.detail_l{width: 700px;float: left;padding-top: 23px;}
+.detail_l .up{height: 35px;line-height: 35px;border-bottom:1px solid #EDEDED;}
+.detail_l .up a:hover{color: #008EDD;text-decoration: none;}
+
+.tit{height: 89px;border-top:1px solid #F4F4F4;}
+.tit h3{font-size: 17px;font-weight: normal;color: #434343;text-align: center;line-height: 62px;}
+.tit p{text-align: center;}
+
+
+.article{border-top:1px dashed #D1D1D1;padding-top: 20px;}
+.article img{margin-bottom: 48px;}
+.article p{line-height: 24px;font-size: 15px;margin-bottom: 23px;text-indent: 2em;color: #434343;}
+.article .tuchu{line-height: 24px;font-size: 16px;color: #337AFF;margin-bottom: 40px;}
+.article h2{font-size: 18px;font-weight: bold;color: #43434A;}
+
+.bot{border-top:1px solid #EEEEEE;height: 89px;}
+.bot a{float: right;width: 60px;height: 22px;text-align: center;line-height: 22px;background: url(ndesd.jpg)/*tpa=http://948it.com/internet/kaidaer/images/ndesd.jpg*/ no-repeat left top;}
+.bot a:hover{background-position: -61px 0;text-decoration: none;color: #fff;}
+
+.detail_r{height: 492px;width: 241px;border:1px solid #EDEDED;float: right;margin-top: 58px;padding-left: 15px;background: #fff;}
+.detail_r h4{line-height: 49px;height: 49px;font-size: 13px;color:#272727;}
+.detail_r dl{height: 67px;border-bottom:1px dashed #D1D1D1;width: 225px;}
+.detail_r dt{float: left;}
+.detail_r dd{float: left;width: 113px;margin-left: 10px;}
+.detail_r dd a{color:#2F2F2F;}
+.detail_r dd a:hover{text-decoration: none;}
+.detail_r ul li{height: 35px;line-height: 35px;width: 225px;border-bottom:1px dashed #D1D1D1;}
+.detail_r li a:hover{color: #008EDD;text-decoration: none;}
+
+
+/* ----------------------------------修改--------------------------------- */
+.banplay{width: 500%;height: 448px;position: absolute;left: 0;top: 0;}
+.banplay li{background:url(banner1-2.jpg)/*tpa=http://948it.com/internet/kaidaer/images/banner1.jpg*/ no-repeat center top;float: left;width: 20%;height: 448px;}
+.box{width: 130px;height: 15px;position: absolute;left: 0;right: 0;bottom: 0;margin: auto;}
+.box li{width: 15px;height: 15px;background: #ccc;margin-right: 10px;float: left;border-radius: 50%;}
+.box .current{background:#5353F1;}
+

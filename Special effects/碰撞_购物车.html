@@ -1,0 +1,91 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>碰撞购物车</title>
+<style>
+*{margin:0;padding:0;}
+
+.div1{width:60px;height:60px; background:#666; color:#fff; position:absolute;top:0;left:0; z-index:10; line-height:60px;  text-align:center }
+
+.div2{width:200px;height:200px; position:absolute;top:80px;left:200px; background:#ddd; padding:10px; }
+h4{ height:40px; line-height:40px; border-bottom:1px solid #333;}
+p{ line-height:40px}
+em{ color:red; font-size:30px; font-weight:bold; font-style:normal}
+</style>
+<script>
+window.onload=function(){
+	var oDiv1=document.getElementsByTagName('div')[0];
+	var oDiv2=document.getElementsByTagName('div')[1];
+	
+	var crash=false;//碰撞状态
+	var t_shirt_num=0;		
+	
+	oDiv1.onmousedown=function(ev){
+		var oEv=ev||event;
+		var disX=oEv.clientX-oDiv1.offsetLeft;
+		var disY=oEv.clientY-oDiv1.offsetTop;
+		
+		var old_top=oDiv1.offsetTop;
+		var old_left=oDiv1.offsetLeft;
+		
+		
+		document.onmousemove=function(ev){
+			var oEv=ev||event;
+			oDiv1.style.top=oEv.clientY-disY+'px';
+			oDiv1.style.left=oEv.clientX-disX+'px';
+			
+			var A_l=oDiv1.offsetLeft;// A_pink
+			var A_r=A_l+oDiv1.offsetWidth; // A_green
+			var A_t=oDiv1.offsetTop; //A_red
+			var A_b=A_t+oDiv1.offsetHeight;// A_blue
+			
+			console.log(A_l,A_r,A_t,A_b);
+			var B_l=oDiv2.offsetLeft; //B_green
+			var B_r=B_l+oDiv2.offsetWidth; //B_pink
+			var B_t=oDiv2.offsetTop;// B_blue
+			var B_b=B_t+oDiv2.offsetHeight; //B_red
+			
+			if(A_t>B_b||A_r<B_l||A_b<B_t||A_l>B_r){
+				//碰不上
+				oDiv2.style.background='#ddd';
+				crash=false;	
+			}
+			else{
+				oDiv2.style.background='yellow';
+				crash=true;	
+			}
+				
+		};
+		
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			
+			if(crash){//如果处于碰撞状态
+				t_shirt_num++;
+				if(t_shirt_num>5){
+					alert('兄弟，你这么花钱，你老婆知道吗？')
+				}
+				oDiv2.innerHTML="<h4>购物车</h4><p>您购买了<em>"+t_shirt_num+"</em>件衬衫</p>";
+				crash=false;
+			};
+			
+			//复位
+			oDiv1.style.top=old_top+'px';
+			oDiv1.style.left=old_left+'px';
+			oDiv2.style.background='#ddd';
+		};
+		return false;
+			
+	};
+};
+</script>
+</head>
+
+<body>
+
+<div class="div1">衬衫</div>
+<div class="div2"><h4>购物车</h4></div>
+
+</body>
+</html>

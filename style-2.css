@@ -1,0 +1,149 @@
+/* CSS Document */
+
+/*清除默认样式*/
+body,div,span,p,a,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,input,img{padding: 0;margin: 0;border: 0;list-style: none;outline:none;}
+body{color: #666666;font-family: "微软雅黑";font-size:12px;}
+a{text-decoration: none;color: #666666;}
+a:hover{text-decoration: underline;color: #34BA88;}
+
+/* 首页 */
+
+/* nav */
+#nav{width: 100%;height: 85px;background:#00280E;}
+.nav_in{width: 950px;margin: 0 auto;height: 85px;padding-left: 30px;overflow: hidden;}
+.nav_in h1{background:url(logo-1.png)/*tpa=http://948it.com/internet/hesheng/images/logo.png*/ no-repeat;width: 187px;height: 65px;margin-top:20px;float: left;}
+.nav_in h1 a{width: 187px;height: 65px;display: block;}
+.nav_r{float: right;height: 85px;width: 680px;}
+.nav_r p{text-align: right;color:#34BA88;margin-right:16px;}
+.nav_r span{font-size: 20px;color: #fff;font-weight: bold;margin-right: 10px;}
+.nav_r li{float: left;}
+.nav_r li a{width: 85px;height: 60px;line-height: 60px;text-align: center;display: block;font-size: 14px;color: #34ba88;}
+.nav_r li a:hover{text-decoration: none;color: #fff;}
+.nav_r .current{color: #fff;}
+
+/* banner */
+#banner{width: 100%;height: 492px;}
+.turn{width: 82px;height: 38px;position: absolute;right: 302px;bottom: 15px;}
+.turn span{width: 38px;height: 38px;cursor: pointer;}
+.turn .v1{float: left;background:url(v1.png)/*tpa=http://948it.com/internet/hesheng/images/v1.png*/ no-repeat;}
+.turn .v2{float:right;background:url(v2.png)/*tpa=http://948it.com/internet/hesheng/images/v2.png*/ no-repeat;}
+
+
+/*#news*/
+#news{width: 980px;margin: 0 auto;height:126px;margin-top: 45px;}
+#news h2{font-size: 30px;color: #282828;text-align: center;}
+.txt{text-indent:2em;font-size: 14px;width: 960px;margin: 0 auto;margin-top: 20px;}
+
+/* content */
+#content{width: 980px;margin: 0 auto;}
+.con_top{height: 225px;padding-left: 20px;overflow: hidden;}
+.con_top .box1{width: 293px;float: left;margin-right: 30px;}
+.con_top .box1 h3{font-size: 18px;font-weight: normal;}
+.con_top h3 a{color: #272727;}
+.con_top h3 a:hover{color:#34BA88;text-decoration: none;}
+.con_top .box1 p{margin-bottom:23px;margin-top: 6px;}
+.con_top .box1 span{width: 180px;height: 15px;margin: 0 auto;display: block;margin-top: 10px;background: url(navbgc.png)/*tpa=http://948it.com/internet/hesheng/images/navbgc.png*/ no-repeat 25px top;border-top:1px solid #ccc;padding-left:55px;padding-top: 9px;}
+.con_top .box3{margin: 0;}
+
+.con_cen{height: 179px;margin-top: 20px;padding-left: 20px;}
+.con_cen h3{font-size: 18px;font-weight: normal;}
+.con_cen h3 a{color: #272727;}
+.con_cen h3 a:hover{color:#34BA88;text-decoration: none;}
+.con_cen .box2 p{margin-bottom:12px;margin-top: 6px;width: 80px;height: 16px;background: #34BA88;text-align: center;line-height: 16px;color: #fff;}
+.con_cen .box2{float: left;margin-right:30px;}
+.con_cen .last{margin: 0;}
+
+.con_down{height: 140px;margin-top: 20px;padding-left:20px;}
+.con_down .newsl{width: 292px;height: 140px;float: left;margin-right: 30px;}
+.newsl_int{height: 24px;border-bottom: 1px solid #E2E2E2;}
+.newsl_int a{float: left;font-size: 14px;color: #686868;}
+.newsl_int a:hover{color: #34ba88;text-decoration: none;}
+.newsl_int p{float: right;}
+.newsl_ind{padding-top: 5px;}
+.newsl_ind p{line-height: 22px;background:url(txtbg.png)/*tpa=http://948it.com/internet/hesheng/images/txtbg.png*/ no-repeat left center ;padding-left: 17px;}
+
+.con_down .newsc{float: left;width: 292px;line-height:30px;margin-right: 30px;}
+.con_down .newsr{line-height: 30px;}
+
+/* footer */
+#footer{height: 117px;width: 100%;background:url(footer_bg.png)/*tpa=http://948it.com/internet/hesheng/images/footer_bg.png*/ repeat-x left top;}
+.footer_in{width: 980px;margin: 0 auto;height: 109px;padding-top:8px;}
+.weixin{float: left;margin-right: 20px;}
+.wenben{float: left;width: 755px;height: 109px;line-height: 24px;}
+.wenben p{color: #fff;}
+.wenben p a{color:white;text-decoration: none;}
+.wenben p a:hover{color:red;text-decoration: none;}
+.wenben .lastest{background:url(ba.png)/*tpa=http://948it.com/internet/hesheng/images/ba.png*/ no-repeat left center;padding-left: 26px;}
+.footer_in .cazz{float: right;margin-top: 15px;margin-right: 30px;}
+
+
+/* 列表页 */
+
+/* list */
+#list_ban{height: 173px;background:#F1F1F9 url(listbg.png)/*tpa=http://948it.com/internet/hesheng/images/listbg.png*/ no-repeat right top;margin-bottom: 30px;}
+
+#list{width: 1000px;margin: 0 auto;}
+.list_up{height: 32px;background:url(list_upbg.png)/*tpa=http://948it.com/internet/hesheng/images/list_upbg.png*/ no-repeat center bottom;padding-bottom:5px;}
+.list_up p{float: left;}
+.list_up .yingyu{font-size:30px;font-family:"Baskerville Old Face";color: #333333;margin-left:325px;margin-right:20px}
+.list_up .yingyu span{color:#C01A1C;}
+.list_up .zhongwen{font-size:24px;font-weight: bold;color: #000;line-height: 30px;}
+
+.list_center{margin-top: 25px;}
+.list_new1{height: 68px;overflow: hidden;margin-bottom: 20px;}
+.list_new1 .boxs1{float: left;}
+.list_new1 .boxs2{float:right;}
+.list_new1 .date{margin-left: 12px;margin-right: 15px;}
+.list_new1 .photo{margin-right: 10px;}
+.list_new1 li{float: left;}
+.list_new1 li p{width:256px;line-height: 20px;}
+.list_new1 .n_name{line-height: 22px;font-weight: bold;font-size: 13px;}
+.list_new1 .n_name:hover{color:red;text-decoration: none;}
+
+.list_down{width: 436px;height: 20px;margin: 0 auto;margin-top: 48px;margin-bottom: 70px;}
+.list_down ul li{float: left;width: 20px;height: 20px;background:#00280E;color: #fff;text-align: center;line-height: 20px;cursor: pointer;margin-right: 6px;}
+.list_down li.one{background: #29A476;}
+.list_down li.laster{margin: 0;}
+
+
+/* 详情页 */
+
+/* detail */
+#detail{width: 1000px;margin: 0 auto;}
+.det_top{height: 69px;border-bottom:1px solid #E3E3E3;padding-top: 25px;}
+.det_top h4{text-align: center;font-size: 18px;color: #333;}
+.det_top p{text-align: center;margin-top: 20px;color: #999999;}
+.det_top p a{color: #999999;}
+.det_top p a:hover{text-decoration: none;}
+.det_center{padding-top: 20px;}
+.det_center p{line-height: 26px;font-size: 13px;text-indent:2em;overflow: hidden;}
+.det_center span{width: 680px;background:url(detbg.png)/*tpa=http://948it.com/internet/hesheng/images/detbg.png*/ no-repeat;display: block;margin: 0 auto;text-align: center;padding-top:457px;margin-top: 20px;}
+.det_center .tex{margin-top: 40px;}
+.det_center .tex2{margin-top: 20px;}
+.det_center .pic2{background:url(deapic3.jpg)/*tpa=http://948it.com/internet/hesheng/images/deapic3.jpg*/ no-repeat;}
+.det_center .pic3{background: url(detpic.png)/*tpa=http://948it.com/internet/hesheng/images/detpic.png*/ no-repeat;margin-bottom: 32px;}
+.det_center .tex3{margin-top: 25px;margin-bottom: 30px;}
+
+.det_down{height:80px;border-top: 1px solid #EAEAEA;padding-top: 15px;}
+.det_down p{line-height: 30px;font-size: 13px;}
+.det_down p a:hover{color:red;text-decoration: none;}
+
+
+/* --------------------------修改--------------------------- */
+.banplay{width: 1440px;height: 492px;margin: 0 auto;position: relative;}
+.banplay ul{position: relative;z-index: 1;}
+.banplay ul li{position: absolute;left: 0;top: 0;}
+.banplay .turn{z-index: 2;}
+
+
+
+
+
+
+
+
+
+
+
+
+
